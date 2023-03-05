@@ -115,6 +115,43 @@
 
         <a href="" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
     </div>
+
+    <div class=" text-center mt-5 pt-5 bg-primary mb-4 pb-5 text-white" style="width: 100%%">
+        <h2 class="fw-bolder">Why choose Us</h2>
+        <div class="row allign-items-center g-0 mx-5 px-5 mt-5" >
+            <div class="col">
+                <figure>
+                    <i class="bi bi-geo-alt display-3"></i>
+                    <figcaption>1000+ <br> Years of House</figcaption>
+                </figure>
+            </div>
+            
+            <div class="col">
+                <figure>
+                    <i class="bi bi-book display-3"></i>
+                    <figcaption>20000+ <br> Projects Delivered</figcaption>
+                </figure>
+            </div>
+
+            <div class="col">
+                <figure>
+                    <i class="bi bi-people display-3"></i>
+                    <figcaption>10000+ <br> Satisfied Customers</figcaption>
+                </figure>
+            </div>
+
+            <div class="col">
+                <figure>
+                    <i class="bi bi-cash-coin display-3"></i>
+                    <figcaption>1500+ <br> Cheap Rates</figcaption>
+                </figure>
+            </div>
+        
+        
+        </div>
+        
+        
+    </div>
 </body>
 
 </html>
