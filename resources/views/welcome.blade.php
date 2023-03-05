@@ -112,6 +112,8 @@
                 </div>
             </div>
         </div>
+
+        <a href="" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
     </div>
 </body>
 
