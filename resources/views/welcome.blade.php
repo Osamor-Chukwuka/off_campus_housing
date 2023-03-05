@@ -116,7 +116,7 @@
         <a href="" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
     </div>
 
-    <div class=" text-center mt-5 pt-5 bg-primary mb-4 pb-5 text-white" style="width: 100%%">
+    <div class=" text-center mt-5 pt-5 mb-4 pb-5 text-white choose-us" style="width: 100%;">
         <h2 class="fw-bolder">Why choose Us</h2>
         <div class="row allign-items-center g-0 mx-5 px-5 mt-5" >
             <div class="col">
@@ -152,6 +152,25 @@
         
         
     </div>
+
+    <div class="container mt-5 pt-5 mb-4">
+        <h2 class="fw-bolder text-center">What Our Customers Says</h2>
+        <div class="" style="">
+            <img src="{{asset('images/black-teen.jpg')}}" class="img img-thumbnail  float-start" style="width: 12%" alt="..."><br><br>
+            <span class="ms-3 fw-bolder fs-5">Majority <i class="bi bi-dash-lg"></i></span><br>
+            <span class="ms-3 text-start">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't</span>
+        </div>
+    </div>
+
+    <div class="container mt-5 pt-5">
+        <h1>jdj</h1>
+    </div>
 </body>
 
 </html>
+
+<style>
+    .choose-us{
+        background: #0f2480;
+    }
+</style>
