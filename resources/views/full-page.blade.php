@@ -30,7 +30,7 @@
     </div>
 
     <div class="mb-5 pb-5">
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -82,12 +82,24 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
+                href="">Pay Now
+            </a>
+
+            <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
+                href=""><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+            </a>
+        </div>
     </div>
 
 
+
+
     <div class="container mb-5">
-        <div class="row">
-            <div class="col-5">
+        <div class="row g-5">
+            <div class="col-6">
                 <div>
                     <h2 class="fw-bolder">ABOUT</h2>
                     <p class="fs-5">Built in 2013, the 17th Avenue residence hall has six floors with space for 600
@@ -102,8 +114,9 @@
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button border border-warning text-black fs-5 fw-bolder" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button border border-warning text-black fs-5 fw-bolder"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
                                 Room Types
                             </button>
                         </h2>
@@ -121,8 +134,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed border border-warning text-black fs-5 fw-bolder" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed border border-warning text-black fs-5 fw-bolder"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
                                 Cost
                             </button>
                         </h2>
@@ -140,9 +154,10 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed border border-warning" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
+                            <button class="accordion-button collapsed border border-warning text-black fs-5 fw-bolder"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Gender Open Housing
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -158,6 +173,146 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <div class="mt-5 pt-5">
+                    <h2 class="fw-bolder">FEATURES & AMENITIES</h2>
+                    <div class="border border-warning">
+                        <ul class="mt-2 fs-5">
+                            <li>24/7 Information Desk</li>
+                            <li>Air conditioning</li>
+                            <li>Bicycle racks</li>
+                            <li>Building kitchen</li>
+                        </ul>
+                        <button class="btn btn-warning fs-5 fw-bold" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Show
+                            All</button>
+
+                        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+                            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title fw-bolder" id="offcanvasWithBothOptionsLabel">FEATURES &
+                                    AMENITIES
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="fs-5">
+                                    <li>24/7 Information Desk</li>
+                                    <li>Air conditioning</li>
+                                    <li>Bicycle racks</li>
+                                    <li>Building kitchen</li>
+                                    <li>Common area lounges</li>
+                                    <li>Fresh Food Dining</li>
+                                    <li>Fully furnished</li>
+                                    <li>Game room</li>
+                                    <li>Gigabit ethernet internet</li>
+                                    <li>HBO</li>
+                                    <li>Laundry included</li>
+                                    <li>Meditation room</li>
+                                    <li>Music practice rooms</li>
+                                    <li>Open during breaks</li>
+                                    <li>Parking</li>
+                                    <li>Security</li>
+                                    <li>Study rooms</li>
+                                    <li>Tech lab</li>
+                                    <li>Wi-Fi</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="mt-5 pt-5">
+                    <h2 class="fw-bolder">FURNISHINGS</h2>
+                    <div class="border border-warning">
+                        <ul class="mt-2 fs-5">
+                            <li>1 cable TV jack (TV and cord not provided)</li>
+                            <li>1 gigabit Ethernet internet jack per resident (cord not provided)</li>
+                            <li>Carpeted floors</li>
+                            <li>Desk and chair</li>
+                        </ul>
+                        <button class="btn btn-warning fs-5 fw-bold" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Show All
+                        </button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                            aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title fw-bolder" id="offcanvasRightLabel">FURNISHINGS</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="mt-2 fs-5">
+                                    <li>1 cable TV jack (TV and cord not provided)</li>
+                                    <li>1 gigabit Ethernet internet jack per resident (cord not provided)</li>
+                                    <li>Carpeted floors</li>
+                                    <li>Desk and chair</li>
+                                    <li>Drawer space</li>
+                                    <li>Extra long twin bed (36 inches x 80 inches)</li>
+                                    <li>Recycling 3-part containers</li>
+                                    <li>Window coverings</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <h2 class="fw-bolder">Location</h2>
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15765.097872139924!2d7.557224000000001!3d8.946836699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1678842587306!5m2!1sen!2sng"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+
+                <div class="accordion mt-3" id="accordionExample3">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne3">
+                            <button class="accordion-button border border-warning text-black fs-5 fw-bolder"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne3"
+                                aria-expanded="true" aria-controls="collapseOne3">
+                                Getting Around
+                            </button>
+                        </h2>
+                        <div id="collapseOne3" class="accordion-collapse collapse show" aria-labelledby="headingOne3"
+                            data-bs-parent="#accordionExample3">
+                            <div class="accordion-body border border-warning">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default, until
+                                the collapse plugin adds the appropriate classes that we use to style each element.
+                                These classes control the overall appearance, as well as the showing and hiding via CSS
+                                transitions. You can modify any of this with custom CSS or overriding our default
+                                variables. It's also worth noting that just about any HTML can go within the
+                                <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-5 pt-5">
+                    <h2 class="fw-bolder">CONTACT</h2>
+                    <div class="border border-warning">
+                        <ul class="mt-2 fs-5 fw-bold">
+                            <li>Phone: <a href="tel:12345678987">12345678987</a></li>
+                            <li>Email: <a href="mailto: abc@example.com">abc@example.com</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
