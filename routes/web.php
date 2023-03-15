@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HousesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// display buildings page
+Route::get('/houses', [HousesController::class, 'show'])->name('houses');
+
+// display building full page
+Route::get('/houses/full-page', [HousesController::class, 'fullPage'])->name('full-details');
