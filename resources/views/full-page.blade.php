@@ -89,7 +89,7 @@
             </a>
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href=""><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+                href="{{route('message_page')}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
             </a>
         </div>
     </div>
