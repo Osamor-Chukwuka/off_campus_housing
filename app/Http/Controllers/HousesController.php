@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class HousesController extends Controller
 {
+    // show create house page
+    public function showCreateHousePage(){
+        return view('create-house');
+    }
+    
     //show all houses
     public function show(){
         return view('houses');

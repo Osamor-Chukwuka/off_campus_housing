@@ -1,3 +1,7 @@
+@php
+    $Account_type = "Account-type";
+@endphp
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -51,6 +55,9 @@
                             @endif
                         @else
                             <a href="{{route('houses')}}" class="nav-link me-5">Houses</a>
+                            @if (Auth::user()->$Account_type == 'LandLord')
+                                <a href="{{route('create_house_page')}}" class="nav-link me-5">Create House</a>
+                            @endif
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

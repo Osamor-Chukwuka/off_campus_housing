@@ -24,6 +24,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// show create house page
+Route::get('/show-create-house-page', [HousesController::class, 'showCreateHousePage'])->name('create_house_page');
+
 // display buildings page
 Route::get('/houses', [HousesController::class, 'show'])->name('houses');
 
