@@ -16,6 +16,11 @@
             <img src="{{ asset('images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <h1 class="display-4 w-10 text-uppercase fw-bolder">Rent a <br> Modern House <br> off campus</h1>
             </figcaption>
         </figure>
@@ -118,14 +123,14 @@
 
     <div class=" text-center mt-5 pt-5 mb-4 pb-5 text-white choose-us" style="width: 100%;">
         <h2 class="fw-bolder">Why choose Us</h2>
-        <div class="row allign-items-center g-0 mx-5 px-5 mt-5" >
+        <div class="row allign-items-center g-0 mx-5 px-5 mt-5">
             <div class="col">
                 <figure>
                     <i class="bi bi-geo-alt display-3"></i>
                     <figcaption>1000+ <br> Years of House</figcaption>
                 </figure>
             </div>
-            
+
             <div class="col">
                 <figure>
                     <i class="bi bi-book display-3"></i>
@@ -146,19 +151,22 @@
                     <figcaption>1500+ <br> Cheap Rates</figcaption>
                 </figure>
             </div>
-        
-        
+
+
         </div>
-        
-        
+
+
     </div>
 
     <div class="container mt-5 pt-5 mb-4">
         <h2 class="fw-bolder text-center">What Our Customers Says</h2>
         <div class="" style="">
-            <img src="{{asset('images/black-teen.jpg')}}" class="img img-thumbnail  float-start" style="width: 12%" alt="..."><br><br>
+            <img src="{{ asset('images/black-teen.jpg') }}" class="img img-thumbnail  float-start" style="width: 12%"
+                alt="..."><br><br>
             <span class="ms-3 fw-bolder fs-5">Majority <i class="bi bi-dash-lg"></i></span><br>
-            <span class="ms-3 text-start">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't</span>
+            <span class="ms-3 text-start">There are many variations of passages of Lorem Ipsum available, but the
+                majority have suffered alteration in some form, by injected humour, or randomised words which
+                don't</span>
         </div>
     </div>
 
@@ -170,17 +178,40 @@
 </html>
 
 <style>
-    .choose-us{
+    .choose-us {
         background: #6a4f0b;
     }
 
-    .button_color{
+    .button_color {
         background: #deb887;
         color: white;
     }
 
-    .button_color:hover{
+    .button_color:hover {
         background: #deb887;
         color: white;
     }
 </style>
+
+
+
+
+
+
+
+
+{{-- "type" => "Bungalow"
+      "address" => "house 10, kurudu, Abuja"
+      "about" => "it's a nice house"
+      "price" => "100000"
+      "payment_duration" => "month"
+      "gender" => "any Gender can stay"
+      "security" => "no theft recorded"
+      "features" => "ir conditioning , Meditation room, Study rooms"
+      "furnishings" => "2 Desk and chair , Carpeted floors, Twin bed"
+      "city" => "abuja"
+      "state" => "Nasarawa"
+      "zip_code" => "900018"
+      "image1" => "Screenshot (28).png"
+      "image2" => "Screenshot (10).png"
+      "image3" => "Screenshot (4).png" --}}

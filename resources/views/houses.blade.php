@@ -90,338 +90,55 @@
 
     <div class="container mt-5 pt-5 mb-4">
         <div class="row allign-items-center g-5">
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
+            @foreach ($houses as $house)
+                
+            
+                <div class="col-3">
+                    <div class="card border-0" style="width: 18rem;">
+                        <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="" class="text-decoration-none">
+                                <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                            </a>
+                            <p class="card-text h5">Residence Hall</p>
+                            <p class="card-text h5 text-primary">Dinkytown</p>
+                        </div>
                     </div>
-                </div>
 
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <div>
-                    <p>
-                        <button class="btn btn-lg ps-5 pe-1 ms-2 collapse-btn border-0 " type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false"
-                            aria-controls="collapseWidthExample1">
-                            Details about Building <span
-                                class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                        </button>
-                    </p>
-                    <div style="min-height: 120px;">
-                        <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample1">
-                            <div class="card card-body" style="width: 280px;">
-                                <ul>
-                                    <li>First Year Students</li>
-                                    <li>$3,652 - $4,313 /semester</li>
-                                    <li>Living Learning Communities</li>
-                                </ul>
-                                <div class="d-grid gap-2 w-100">
-                                    <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                            class="text-white text-decoration-none">Full Details</a></button>
+                    <div>
+                        <p>
+                            <button class="btn btn-lg ps-5 pe-1 ms-2 collapse-btn border-0 " type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false"
+                                aria-controls="collapseWidthExample1">
+                                Details about Building <span
+                                    class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
+                            </button>
+                        </p>
+                        <div style="min-height: 120px;">
+                            <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample1">
+                                <div class="card card-body" style="width: 280px;">
+                                    <ul>
+                                        <li>First Year Students</li>
+                                        <li>$3,652 - $4,313 /semester</li>
+                                        <li>Living Learning Communities</li>
+                                    </ul>
+                                    <div class="d-grid gap-2 w-100">
+                                        <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                                class="text-white text-decoration-none">Full Details</a></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
+                
+            @endforeach    
 
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn btn-lg ps-5 pe-0 ms-2  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false"
-                        aria-controls="collapseWidthExample2">
-                        Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample2">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn btn-lg ps-2 pe-1 ms-5  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false"
-                        aria-controls="collapseWidthExample3">
-                        Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample3">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn  btn-lg ps-2 pe-1 ms-1 ms-5  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false"
-                        aria-controls="collapseWidthExample4">
-                        Details about Building <span class="btn btn-warning dropdown-toggle border-0 dropdownn"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning ms-1" id="collapseWidthExample4">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
-
-
-
-
-        <div class="row allign-items-center g-5">
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card border-0" style="width: 18rem;">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="" class="text-decoration-none">
-                            <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
-                        </a>
-                        <p class="card-text h5">Residence Hall</p>
-                        <p class="card-text h5 text-primary">Dinkytown</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <div>
-                    <p>
-                        <button class="btn btn-lg ps-5 pe-1 ms-2 collapse-btn border-0 " type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseWidthExample5" aria-expanded="false"
-                            aria-controls="collapseWidthExample5">
-                            Details about Building <span
-                                class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                        </button>
-                    </p>
-                    <div style="min-height: 120px;">
-                        <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample5">
-                            <div class="card card-body" style="width: 280px;">
-                                <ul>
-                                    <li>First Year Students</li>
-                                    <li>$3,652 - $4,313 /semester</li>
-                                    <li>Living Learning Communities</li>
-                                </ul>
-                                <div class="d-grid gap-2 w-100">
-                                    <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                            class="text-white text-decoration-none">Full Details</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn btn-lg ps-5 pe-0 ms-2  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample6" aria-expanded="false"
-                        aria-controls="collapseWidthExample6">
-                        Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample6">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn btn-lg ps-2 pe-1 ms-5  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample7" aria-expanded="false"
-                        aria-controls="collapseWidthExample7">
-                        Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample7">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                {{-- The drop Down --}}
-                <p>
-                    <button class="btn  btn-lg ps-2 pe-1 ms-1 ms-5  collapse-btn border-0" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseWidthExample8" aria-expanded="false"
-                        aria-controls="collapseWidthExample8">
-                        Details about Building <span class="btn btn-warning dropdown-toggle border-0 dropdownn"></span>
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-vertical border border-warning ms-1" id="collapseWidthExample8">
-                        <div class="card card-body" style="width: 280px;">
-                            <ul>
-                                <li>First Year Students</li>
-                                <li>$3,652 - $4,313 /semester</li>
-                                <li>Living Learning Communities</li>
-                            </ul>
-                            <div class="d-grid gap-2 w-100">
-                                <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
-                                        class="text-white text-decoration-none">Full Details</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
 
     </div>
@@ -461,3 +178,175 @@
         background: rgb(141, 34, 34)
     }
 </style>
+
+
+
+
+
+
+
+
+{{-- <div class="row allign-items-center g-5">
+    <div class="col-3">
+        <div class="card border-0" style="width: 18rem;">
+            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="" class="text-decoration-none">
+                    <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                </a>
+                <p class="card-text h5">Residence Hall</p>
+                <p class="card-text h5 text-primary">Dinkytown</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-3">
+        <div class="card border-0" style="width: 18rem;">
+            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="" class="text-decoration-none">
+                    <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                </a>
+                <p class="card-text h5">Residence Hall</p>
+                <p class="card-text h5 text-primary">Dinkytown</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="card border-0" style="width: 18rem;">
+            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="" class="text-decoration-none">
+                    <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                </a>
+                <p class="card-text h5">Residence Hall</p>
+                <p class="card-text h5 text-primary">Dinkytown</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="card border-0" style="width: 18rem;">
+            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="" class="text-decoration-none">
+                    <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                </a>
+                <p class="card-text h5">Residence Hall</p>
+                <p class="card-text h5 text-primary">Dinkytown</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto">
+        {{-- The drop Down --}}
+        {{-- <div>
+            <p>
+                <button class="btn btn-lg ps-5 pe-1 ms-2 collapse-btn border-0 " type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false"
+                    aria-controls="collapseWidthExample1">
+                    Details about Building <span
+                        class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
+                </button>
+            </p>
+            <div style="min-height: 120px;">
+                <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample1">
+                    <div class="card card-body" style="width: 280px;">
+                        <ul>
+                            <li>First Year Students</li>
+                            <li>$3,652 - $4,313 /semester</li>
+                            <li>Living Learning Communities</li>
+                        </ul>
+                        <div class="d-grid gap-2 w-100">
+                            <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                    class="text-white text-decoration-none">Full Details</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-auto">
+        //The drop Down
+        <p>
+            <button class="btn btn-lg ps-5 pe-0 ms-2  collapse-btn border-0" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false"
+                aria-controls="collapseWidthExample2">
+                Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
+            </button>
+        </p>
+        <div style="min-height: 120px;">
+            <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample2">
+                <div class="card card-body" style="width: 280px;">
+                    <ul>
+                        <li>First Year Students</li>
+                        <li>$3,652 - $4,313 /semester</li>
+                        <li>Living Learning Communities</li>
+                    </ul>
+                    <div class="d-grid gap-2 w-100">
+                        <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                class="text-white text-decoration-none">Full Details</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto"> --}}
+        {{-- The drop Down --}}
+        {{-- <p>
+            <button class="btn btn-lg ps-2 pe-1 ms-5  collapse-btn border-0" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false"
+                aria-controls="collapseWidthExample3">
+                Details about Building <span class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
+            </button>
+        </p>
+        <div style="min-height: 120px;">
+            <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample3">
+                <div class="card card-body" style="width: 280px;">
+                    <ul>
+                        <li>First Year Students</li>
+                        <li>$3,652 - $4,313 /semester</li>
+                        <li>Living Learning Communities</li>
+                    </ul>
+                    <div class="d-grid gap-2 w-100">
+                        <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                class="text-white text-decoration-none">Full Details</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto">
+        // The drop Down
+        <p>
+            <button class="btn  btn-lg ps-2 pe-1 ms-1 ms-5  collapse-btn border-0" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false"
+                aria-controls="collapseWidthExample4">
+                Details about Building <span class="btn btn-warning dropdown-toggle border-0 dropdownn"></span>
+            </button>
+        </p>
+        <div style="min-height: 120px;">
+            <div class="collapse collapse-vertical border border-warning ms-1" id="collapseWidthExample4">
+                <div class="card card-body" style="width: 280px;">
+                    <ul>
+                        <li>First Year Students</li>
+                        <li>$3,652 - $4,313 /semester</li>
+                        <li>Living Learning Communities</li>
+                    </ul>
+                    <div class="d-grid gap-2 w-100">
+                        <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                class="text-white text-decoration-none">Full Details</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> --}}

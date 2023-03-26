@@ -13,7 +13,7 @@
 <body>
     <div class="container pt-5 mb-5   fw-bolder">
         <h2 class="pb-3 text-center">CREATE A HOUSE <i class="bi bi-house-fill display-5 text-secondary houseImg"></i> </h2>
-        <form class="row g-3 create_house" method="POST" action="{{route('create_house')}}">
+        <form class="row g-3 create_house" method="post" action="{{route('create_house')}}">
             @csrf
             <div class="col-md-6">
                 <label for="type" class="form-label">House Type. <i>e.g Bungalow</i> </label>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-6">
                 <label for="address" class="form-label">Payment duration. <i>e.g per month, per year, Forever/permanently</i></label>
-                <input type="text" name="payment_duration" class="form-control" id="address">
+                <input type="text" name="duration" class="form-control" id="address">
             </div>
 
 
@@ -93,7 +93,7 @@
             </div>
             <div class="col-md-2 light_bg pb-3">
                 <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" name="zip_code" class="form-control" id="inputZip">
+                <input type="text" name="zip" class="form-control" id="inputZip">
             </div>
 
 
