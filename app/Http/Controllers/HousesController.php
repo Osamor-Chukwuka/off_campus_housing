@@ -10,6 +10,11 @@ class HousesController extends Controller
     public function showCreateHousePage(){
         return view('create-house');
     }
+
+    // create house
+    public function createHouse(Request $request){
+        dd($request);
+    }
     
     //show all houses
     public function show(){

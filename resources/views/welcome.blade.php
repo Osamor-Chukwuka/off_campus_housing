@@ -48,7 +48,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn button_color">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -171,6 +171,16 @@
 
 <style>
     .choose-us{
-        background: #0f2480;
+        background: #6a4f0b;
+    }
+
+    .button_color{
+        background: #deb887;
+        color: white;
+    }
+
+    .button_color:hover{
+        background: #deb887;
+        color: white;
     }
 </style>

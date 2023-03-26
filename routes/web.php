@@ -27,7 +27,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // show create house page
 Route::get('/show-create-house-page', [HousesController::class, 'showCreateHousePage'])->name('create_house_page');
 
-// display buildings page
+// create houses
+Route::post('/create-house', [HousesController::class, 'createHouse'])->name('create_house');
+
+// display houses page
 Route::get('/houses', [HousesController::class, 'show'])->name('houses');
 
 // display building full page
