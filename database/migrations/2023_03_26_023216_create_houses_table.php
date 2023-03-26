@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('features');
             $table->longText('furnishings');
             $table->string('city');
+            $table->string('tenants');
             $table->string('state');
             $table->string('zip');
             $table->string('image1');

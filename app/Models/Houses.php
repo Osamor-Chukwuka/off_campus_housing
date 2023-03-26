@@ -10,7 +10,7 @@ class Houses extends Model
     use HasFactory;
 
     protected $fillable = ['type', 'address', 'about', 'price', 'duration', 'gender', 'security', 'features', 'furnishings', 
-    'city', 'state', 'zip', 'image1', 'image2', 'image3'];
+    'city', 'tenants', 'state', 'zip', 'image1', 'image2', 'image3'];
 
     protected $table = 'houses';
 }

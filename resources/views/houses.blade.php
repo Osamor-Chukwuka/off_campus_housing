@@ -91,17 +91,15 @@
     <div class="container mt-5 pt-5 mb-4">
         <div class="row allign-items-center g-5">
             @foreach ($houses as $house)
-                
-            
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="" class="text-decoration-none">
-                                <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
+                                <h2 class="card-title fs-4 fw-bolder ">{{$house->type}}</h2>
                             </a>
-                            <p class="card-text h5">Residence Hall</p>
-                            <p class="card-text h5 text-primary">Dinkytown</p>
+                            <p class="card-text h5">{{'N'.$house->price .'/' .$house->duration}}</p>
+                            <p class="card-text h5 text-primary">{{$house->address}}</p>
                         </div>
                     </div>
 

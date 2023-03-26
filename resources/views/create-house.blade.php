@@ -78,9 +78,18 @@
 
 
 
-            <div class="col-md-6 light_bg pb-3">
+            <div class="col-md-3 light_bg pb-3">
                 <label for="inputCity" class="form-label">City</label>
                 <input type="text" name="city" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3 light_bg pb-3">
+                <label for="inputCity" class="form-label">Expected Tenants/Buyers</label>
+                <select id="tenants" class="form-select" name="tenants">
+                    <option>Choose...</option>
+                    <option>for Students</option>
+                    <option>for Staffs</option>
+                    <option>for Anyone</option>
+                </select>
             </div>
             <div class="col-md-4 light_bg pb-3">
                 <label for="inputState" class="form-label">State</label>

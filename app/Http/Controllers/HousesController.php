@@ -40,6 +40,7 @@ class HousesController extends Controller
             'features' => 'required',
             'furnishings' => 'required',
             'city' => 'required',
+            'tenants' => 'required',
             'state' => 'required',
             'zip' => 'required',
             'image1' => 'required',
