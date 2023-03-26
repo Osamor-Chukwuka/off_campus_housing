@@ -69,12 +69,16 @@ class HousesController extends Controller
     }
 
     //Show house full page
-    public function fullPage()
-    {
+    public function fullPage(Request $request)
+    {   $segment =  $request->segment(3);
+        $house = Houses::select('*')->where('id', $segment)->get();
+        $house = $house[0];
         if (Auth::user()->email == null){
             return redirect('/');
         }else{
-            return view('full-page'); //fix  this later
+            return view('full-page', [
+                'house' => $house
+            ]); //fix  this later
         }
         
     }

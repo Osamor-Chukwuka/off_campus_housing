@@ -22,11 +22,9 @@
 
     </div>
     <div class="container text-center">
-        <h1 class="display-1 fw-light">17th Avenue</h1>
+        <h1 class="display-1 fw-light">{{$house->type}}</h1>
         <h1><i class="bi bi-dash-lg fs-1 display-1 fw-bolder h1 text-warning"></i></h1>
-        <p style="padding-right: 13%; padding-left:13%" class="text-center fs-5 fw-semi-bold mb-5">326 Southeast 17th
-            Avenue, Minneapolis, MN, 55414
-        </p>
+        <p style="padding-right: 13%; padding-left:13%" class="text-center fs-5 fw-semi-bold mb-5">{{$house->address}}</p>
     </div>
 
     <div class="mb-5 pb-5">
@@ -102,12 +100,7 @@
             <div class="col-6">
                 <div>
                     <h2 class="fw-bolder">ABOUT</h2>
-                    <p class="fs-5">Built in 2013, the 17th Avenue residence hall has six floors with space for 600
-                        first-year residents.</p><br>
-                    <p class="fs-5">Residence Hall contracts run September-December and January-May. Room details
-                        below are subject to change. Residents
-                        should review their Housing contract terms for the most complete information.
-                    </p>
+                    <p class="fs-5">{{$house->about}}</p><br>
                 </div>
 
 
@@ -143,12 +136,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body border border-warning">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                This House Cost <strong>{{'N'.$house->price .'/' .$house->duration}}</strong>
                             </div>
                         </div>
                     </div>
@@ -163,12 +151,7 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body border border-warning">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{$house->gender}}
                             </div>
                         </div>
                     </div>

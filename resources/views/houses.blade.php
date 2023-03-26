@@ -90,7 +90,13 @@
 
     <div class="container mt-5 pt-5 mb-4">
         <div class="row allign-items-center g-5">
+            @php
+                $counter = 0;
+            @endphp
             @foreach ($houses as $house)
+                @php
+                    $counter++
+                @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
@@ -106,22 +112,22 @@
                     <div>
                         <p>
                             <button class="btn btn-lg ps-5 pe-1 ms-2 collapse-btn border-0 " type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false"
-                                aria-controls="collapseWidthExample1">
+                                data-bs-toggle="collapse" data-bs-target="#collapseWidthExample{{$counter}}" aria-expanded="false"
+                                aria-controls="collapseWidthExample{{$counter}}">
                                 Details about Building <span
                                     class="dropdownn btn btn-warning dropdown-toggle border-0"></span>
                             </button>
                         </p>
                         <div style="min-height: 120px;">
-                            <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample1">
+                            <div class="collapse collapse-vertical border border-warning" id="collapseWidthExample{{$counter}}">
                                 <div class="card card-body" style="width: 280px;">
                                     <ul>
-                                        <li>First Year Students</li>
-                                        <li>$3,652 - $4,313 /semester</li>
-                                        <li>Living Learning Communities</li>
+                                        <li>{{$house->tenants}}</li>
+                                        <li>{{'N'.$house->price .'/' .$house->duration}}</li>
+                                        <li>{{$house->gender}}</li>
                                     </ul>
                                     <div class="d-grid gap-2 w-100">
-                                        <button class="btn btn-warning dropdownn" type="button"><a href="{{route('full-details')}}"
+                                        <button class="btn btn-warning dropdownn" type="button"><a href="/houses/full-page/{{$house->id}}"
                                                 class="text-white text-decoration-none">Full Details</a></button>
                                     </div>
                                 </div>
