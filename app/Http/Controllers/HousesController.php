@@ -49,7 +49,7 @@ class HousesController extends Controller
             'image3' => 'required',
         ]);
 
-        $form['user_id'] = Auth::user()->id;
+        $form['landlord_id'] = Auth::user()->id;
 
         Houses::create($form);
         return redirect('/')->with('message', "House created successfully");
@@ -110,5 +110,20 @@ class HousesController extends Controller
             ]); //fix  this later
         }
         
+    }
+
+    // Display all houses belonging to each Landlord
+    public function myHouses(){
+        $user = Auth::user()->id;
+        $my_houses = Houses::select('*')->where('landlord_id', $user)->get();
+        return view('landlord-houses', [
+            'my_houses' => $my_houses
+        ]);
+    }
+
+    // Landlord Deletes house
+    public function deleteLandlordHouse(Request $request){
+        Houses::destroy($request->house_id);
+        return redirect(Route('my_houses'))->with('status', 'House removed successfully');
     }
 }

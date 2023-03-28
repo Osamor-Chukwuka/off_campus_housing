@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('landlord_id');
             $table->string('type');
             $table->string('address');
             $table->longText('about');
