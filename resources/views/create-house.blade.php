@@ -79,25 +79,27 @@
 
 
             <div class="col-md-3 light_bg pb-3">
-                <label for="inputCity" class="form-label">City</label>
+                <label for="inputCity" class="form-label">Neighbourhood/Community</label>
                 <input type="text" name="city" class="form-control" id="inputCity">
             </div>
             <div class="col-md-3 light_bg pb-3">
                 <label for="inputCity" class="form-label">Expected Tenants/Buyers</label>
                 <select id="tenants" class="form-select" name="tenants">
                     <option>Choose...</option>
-                    <option>for Students</option>
-                    <option>for Staffs</option>
-                    <option>for Anyone</option>
+                    <option> Students</option>
+                    <option>Staff</option>
+                    <option>Anyone</option>
                 </select>
             </div>
             <div class="col-md-4 light_bg pb-3">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select" name="state">
-                    <option>Choose...</option>
-                    <option>Nasarawa</option>
-                    <option>Abuja</option>
-                    <option>Lagos</option>
+                <label for="inputroomates" class="form-label">Number of roomates</label>
+                <select class="form-select border-5 border-warning" aria-label="Default select example" name="roomates">
+                    <option>Roomates</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
             </div>
             <div class="col-md-2 light_bg pb-3">

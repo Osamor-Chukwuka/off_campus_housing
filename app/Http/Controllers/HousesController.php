@@ -41,7 +41,7 @@ class HousesController extends Controller
             'furnishings' => 'required',
             'city' => 'required',
             'tenants' => 'required',
-            'state' => 'required',
+            'roomates' => 'required',
             'zip' => 'required',
             'image1' => 'required',
             'image2' => 'required',
@@ -51,6 +51,19 @@ class HousesController extends Controller
         Houses::create($form);
         return redirect('/')->with('message', "House created successfully");
         // dd($form);
+    }
+
+    // Search houses characteristics
+    public function search(Request $request){
+        $min = $request['min'];
+        $max = $request['max'];
+        $user_type = $request['user_type'];
+        $roomates = $request['roomates'];
+        $neighbourhood = $request['neighbourhood'];
+        $house = Houses::select('*')->where('tenants', 'LIKE', '%'.$user_type.'%')->where('price', '>', $min)
+        ->where('price', '<', $max)->where('tenants', 'LIKE', '%'.$user_type.'%')->where('roomates', $roomates)->
+        where('city', 'LIKE', '%'.$neighbourhood.'%')->get();
+        dd($house );
     }
 
     //show all houses

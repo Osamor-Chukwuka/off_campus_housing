@@ -24,7 +24,7 @@ return new class extends Migration
             $table->longText('furnishings');
             $table->string('city');
             $table->string('tenants');
-            $table->string('state');
+            $table->string('roomates');
             $table->string('zip');
             $table->string('image1');
             $table->string('image2');

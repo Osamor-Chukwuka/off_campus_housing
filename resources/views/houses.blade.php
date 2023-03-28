@@ -34,18 +34,19 @@
         </p>
 
         <div class="mt-5 pt-3">
-            <form class="row  float-end">
+            <form class="row  float-end" method="post" action="{{route('search')}}">
+                @csrf
                 <div class="col-auto">
-                    <select class="form-select border-5 border-warning">
+                    <select class="form-select border-5 border-warning" name="user_type">
                         <option>I am a...</option>
-                        <option value="student">student</option>
-                        <option value="Teaching Staff">Teaching Staff</option>
-                        <option value="Non Teaching Staff">Non Teaching Staff</option>
+                        <option value="Student">Student</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Anyone">Anyone</option>
                     </select>
                 </div>
 
                 <div class="col-auto">
-                    <select class="form-select border-5 border-warning" aria-label="Default select example">
+                    <select class="form-select border-5 border-warning" aria-label="Default select example" name="roomates">
                         <option>Roomates</option>
                         <option value="1">Just Me</option>
                         <option value="2">Me +1</option>
@@ -56,18 +57,18 @@
                 </div>
 
                 <div class="col-auto">
-                    <select class="form-select border-5 border-warning" aria-label="Default select example">
-                        <option selected>Neighbourhood</option>
-                        <option value="1">Kurudu</option>
-                        <option value="2">Karu</option>
-                        <option value="3">Auta</option>
+                    <select class="form-select border-5 border-warning" aria-label="Default select example" name="neighbourhood">
+                        <option selected>Neighbourhood/Community</option>
+                        <option value="kurudu">Kurudu</option>
+                        <option value="karu">Karu</option>
+                        <option value="Auta">Auta</option>
                     </select>
                 </div>
 
                 <div class="col-auto">
                     <div class="input-group ">
                         <span class="input-group-text border-5 border-warning">Min. N</span>
-                        <input type="number" aria-label="First name" class="form-control border-5 border-warning">
+                        <input type="number" aria-label="First name" class="form-control border-5 border-warning" name="min">
 
                     </div>
                 </div>
@@ -75,13 +76,13 @@
                 <div class="col-auto">
                     <div class="input-group ">
                         <span class="input-group-text border-5 border-warning">Max. N</span>
-                        <input type="number" aria-label="First name" class="form-control border-5 border-warning">
+                        <input type="number" aria-label="First name" class="form-control border-5 border-warning" name="max">
 
                     </div>
                 </div>
 
                 <div class="col-auto">
-                    <button class="btn btn-lg btn-warning">Search</button>
+                    <button class="btn btn-lg btn-warning" type="submit">Search</button>
                 </div>
             </form>
         </div>

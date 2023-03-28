@@ -33,6 +33,9 @@ Route::post('/create-house', [HousesController::class, 'createHouse'])->name('cr
 // display houses page
 Route::get('/houses', [HousesController::class, 'show'])->name('houses');
 
+// collect search query for houses
+Route::post('houses/search', [HousesController::class, 'search'])->name('search');
+
 // display building full page
 Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details');
 
