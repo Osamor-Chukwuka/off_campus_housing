@@ -56,7 +56,18 @@
                         @else
                             <a href="{{route('houses')}}" class="nav-link me-5">Houses</a>
                             @if (Auth::user()->$Account_type == 'LandLord')
-                                <a href="{{route('create_house_page')}}" class="nav-link me-5">Create House</a>
+                            <li class="nav-item dropdown me-5">
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    LandLord
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{route('create_house_page')}}" class="dropdown-item me-5">Create House</a>
+                                    <a href="{{route('create_house_page')}}" class="dropdown-item me-5">My Houses</a>
+                                </div>
+                            </li>
+                                
                             @endif
                             <li class="nav-item dropdown">
 

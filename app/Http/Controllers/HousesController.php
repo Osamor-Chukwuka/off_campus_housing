@@ -49,6 +49,8 @@ class HousesController extends Controller
             'image3' => 'required',
         ]);
 
+        $form['user_id'] = Auth::user()->id;
+
         Houses::create($form);
         return redirect('/')->with('message', "House created successfully");
         // dd($form);
