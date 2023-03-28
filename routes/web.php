@@ -36,6 +36,9 @@ Route::get('/houses', [HousesController::class, 'show'])->name('houses');
 // collect search query for houses
 Route::post('houses/search', [HousesController::class, 'search'])->name('search');
 
+// redirect from search when user clicks clear
+Route::post('houses/search/redirect', [HousesController::class, 'searchRedirect'])->name('search-redirect');
+
 // display building full page
 Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details');
 

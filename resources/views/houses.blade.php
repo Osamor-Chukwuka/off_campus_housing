@@ -38,7 +38,7 @@
                 @csrf
                 <div class="col-auto">
                     <select class="form-select border-5 border-warning" name="user_type">
-                        <option>I am a...</option>
+                        <option>Tenant</option>
                         <option value="Student">Student</option>
                         <option value="Staff">Staff</option>
                         <option value="Anyone">Anyone</option>
@@ -83,8 +83,16 @@
 
                 <div class="col-auto">
                     <button class="btn btn-lg btn-warning" type="submit">Search</button>
+                
+                    </form>
                 </div>
+            @if ($current_route == 'houses/search')
+                <form action="{{route('search-redirect')}}" method="POST">
+                @csrf
+                <button class="btn btn-lg btn-danger" type="submit">Clear</button>
             </form>
+            @endif    
+            
         </div>
 
     </div>
@@ -129,7 +137,8 @@
                                     </ul>
                                     <div class="d-grid gap-2 w-100">
                                         <button class="btn btn-warning dropdownn" type="button"><a href="/houses/full-page/{{$house->id}}"
-                                                class="text-white text-decoration-none">Full Details</a></button>
+                                            class="text-white text-decoration-none">Full Details</a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

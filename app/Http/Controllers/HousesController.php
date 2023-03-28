@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Houses;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 
 class HousesController extends Controller
@@ -54,27 +55,40 @@ class HousesController extends Controller
     }
 
     // Search houses characteristics
-    public function search(Request $request){
+    public function search(Request $request, Route $route){
+        $current_route = $route->uri;
         $min = $request['min'];
         $max = $request['max'];
         $user_type = $request['user_type'];
         $roomates = $request['roomates'];
         $neighbourhood = $request['neighbourhood'];
-        $house = Houses::select('*')->where('tenants', 'LIKE', '%'.$user_type.'%')->where('price', '>', $min)
+        $houses = Houses::select('*')->where('tenants', 'LIKE', '%'.$user_type.'%')->where('price', '>', $min)
         ->where('price', '<', $max)->where('tenants', 'LIKE', '%'.$user_type.'%')->where('roomates', $roomates)->
         where('city', 'LIKE', '%'.$neighbourhood.'%')->get();
-        dd($house );
+        // dd($current_route);
+        return view('houses', [
+            'houses' => $houses,
+            'current_route' => $current_route
+        ]);
+
+    }
+
+    // redirect user from search, after they click clear
+    public function searchRedirect(){
+        return redirect('/houses');
     }
 
     //show all houses
-    public function show()
+    public function show(Route $route)
     {   
+        $current_route = $route->uri;
         $houses = Houses::select('*')->get();
         if (Auth::user()->email == null){
             return redirect('/');
         }else{
             return view('houses', [
-                'houses' => $houses
+                'houses' => $houses,
+                'current_route' => $current_route
             ]);  //fix this later
             // dd($houses);
         }
