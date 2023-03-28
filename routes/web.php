@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HousesController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +44,7 @@ Route::post('houses/search/redirect', [HousesController::class, 'searchRedirect'
 Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details');
 
 // make payment
-// Route::get('house/pay', [])
+Route::get('house/pay', [OrdersController::class, 'makePayment'])->name('make_payment');
 
 // Display all houses that belongs to a Landlord
 Route::get('/my-houses', [HousesController::class, 'myHouses'])->name('my_houses');
