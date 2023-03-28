@@ -46,6 +46,8 @@ Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->
 // make payment
 Route::get('house/pay', [OrdersController::class, 'makePayment'])->name('make_payment');
 
+Route::get('/house/verify-payment/{reference}', [OrdersController::class, 'verifyCustomerPayment']);
+
 // Display all houses that belongs to a Landlord
 Route::get('/my-houses', [HousesController::class, 'myHouses'])->name('my_houses');
 
