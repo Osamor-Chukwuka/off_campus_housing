@@ -83,7 +83,7 @@
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
             <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
-                href="">Pay Now
+                href="{{route('make_payment')}}">Pay Now
             </a>
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"

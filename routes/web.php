@@ -42,6 +42,9 @@ Route::post('houses/search/redirect', [HousesController::class, 'searchRedirect'
 // display building full page
 Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details');
 
+// make payment
+// Route::get('house/pay', [])
+
 // Display all houses that belongs to a Landlord
 Route::get('/my-houses', [HousesController::class, 'myHouses'])->name('my_houses');
 
