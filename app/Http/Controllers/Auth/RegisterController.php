@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request\validate;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -71,5 +74,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'Account-type' => $data['Account-type'],
         ]);
+    }
+
+    public function updatePaymentAccount(Request $request){
+        $form = Validator::make($request, [
+            'account_number' => 'required',
+            'sort_code' => 'required',
+        ]);
+
+        User::where("id", Auth::user()->id)->create(["account_number" => $form['account_number']]);
+
     }
 }

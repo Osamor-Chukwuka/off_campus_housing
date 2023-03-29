@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('Account-type');
+            $table->string('account_number')->default(NULL);
+            $table->string('sort_code')->default(NULL);
             $table->rememberToken();
             $table->timestamps();
         });

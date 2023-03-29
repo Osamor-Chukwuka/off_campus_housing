@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HousesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrdersController;
@@ -27,6 +28,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // show create house page
 Route::get('/show-create-house-page', [HousesController::class, 'showCreateHousePage'])->name('create_house_page');
+
+// Update Landlords account details for payment
+Route::post('/update-payment', [HousesController::class, 'updatePaymentAccount'])->name('update_account_details');
 
 // create houses
 Route::post('/create-house', [HousesController::class, 'createHouse'])->name('create_house');
