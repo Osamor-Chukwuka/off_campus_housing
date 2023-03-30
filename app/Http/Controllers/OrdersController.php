@@ -2,21 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Houses;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
     //make payment
-    public function makePayment()
+    public function makePayment(Request $request)
     {
-        return view('make-payment');
+        $segment = $request->segment(3);
+        return view('make-payment', [
+            'segment' => $segment
+        ]);
     }
 
 
 
 
     // Verify Customer Payment
-    public function verifyCustomerPayment($reference)
+    public function verifyCustomerPayment($reference, $productId)
     {
         $curl = curl_init();
 
@@ -44,21 +49,28 @@ class OrdersController extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            return $this->verifyLandLordDetails();
+            $houses = Houses::select('*')->where('id', $productId)->get();
+            $landlord_id =  $houses[0]->landlord_id;
+            $description =  $houses[0]->address;
+            $price =  $houses[0]->price;
+            $duration =  $houses[0]->duration;
+
+            $landlord_details = User::select('*')->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
+
+            $acccount_number =  $landlord_details[0]->account_number;
+            $sort_code =  $landlord_details[0]->sort_code;
+            $account_name = $landlord_details[0]->name;
+
+            return $this->verifyLandLordDetails($acccount_number, $sort_code, $account_name, $description, $price, $duration);
         }
     }
 
-    public function verifyLandLordDetails()
+    public function verifyLandLordDetails($account_no, $sort_code, $account_name, $description, $price, $duration)
     {
-        $account_no = '';
-        $sort_code = '';
-        $account_name = '';
-        $email = '';
-        $id = '';
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.paystack.co/bank/resolve?account_number=6173644787&bank_code=070",
+            CURLOPT_URL => "https://api.paystack.co/bank/resolve?account_number=$account_no&bank_code=$sort_code",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -82,20 +94,20 @@ class OrdersController extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            return $this->transferRecipient();
+            return $this->transferRecipient($account_name, $account_no, $sort_code, $description, $price, $duration);
         }
     }
 
     // get recipient code for Landlords
-    public function transferRecipient()
+    public function transferRecipient($account_name, $acccount_number, $sort_code, $description, $price, $duration)
     {
         $url = "https://api.paystack.co/transferrecipient";
 
         $fields = [
             'type' => "nuban",
-            'name' => "Osamor chukwuka chukwunoye",
-            'account_number' => "6173644787",
-            'bank_code' => "070",
+            'name' => $account_name,
+            'account_number' => $acccount_number,
+            'bank_code' => $sort_code,
             'currency' => "NGN"
         ];
 
@@ -123,12 +135,12 @@ class OrdersController extends Controller
         $data = json_decode($result, true);
         $recipient_code =  $data['data']['recipient_code'];
         if ($data['status'] == 1) {
-            return $this->transferMoney();
+            return $this->transferMoney($recipient_code, $description, $price, $duration);
         }
     }
 
     // transfer money to Landlord
-    public function transferMoney()
+    public function transferMoney($recipient_code, $description, $price, $duration)
     {
         $random_string = 0;
         for ($i = 1; $i <= 14; $i++) {
@@ -138,10 +150,10 @@ class OrdersController extends Controller
 
         $fields = [
             'source' => "balance",
-            'amount' => 300,
+            'amount' => $price,
             "reference" => $random_string,
-            'recipient' => "RCP_a63qipsh50mapb9",
-            'reason' => "Payment for goods"
+            'recipient' => $recipient_code,
+            'reason' => $description . " Duration: ". $duration
         ];
 
         $fields_string = http_build_query($fields);

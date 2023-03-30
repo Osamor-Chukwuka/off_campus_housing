@@ -29,6 +29,9 @@
                 <label for="last-name">Last Name</label>
                 <input type="text" id="last-name" />
             </div>
+            {{-- <div class="form-group">
+                <input type="text" id="productId" value="" hidden />
+            </div> --}}
             <div class="form-submit">
                 <button type="submit" onclick="payWithPaystack()"> Pay </button>
             </div>
@@ -40,6 +43,9 @@
 
 </html>
 
+<script>
+    let segment = {{$segment}};
+</script>
 
 <script>
     const paymentForm = document.getElementById('paymentForm');
@@ -60,7 +66,7 @@
             },
             callback: function(response) {
                 let reference = response.reference;
-                window.location = "verify-payment/" + reference;
+                window.location = "verify-payment/" + reference + "/" + segment;
             }
         });
 
