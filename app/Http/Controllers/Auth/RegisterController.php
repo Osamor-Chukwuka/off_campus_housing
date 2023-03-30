@@ -76,13 +76,13 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function updatePaymentAccount(Request $request){
-        $form = Validator::make($request, [
-            'account_number' => 'required',
-            'sort_code' => 'required',
-        ]);
+    // public function updatePaymentAccount(Request $request){
+    //     $form = Validator::make($request, [
+    //         'account_number' => 'required',
+    //         'sort_code' => 'required',
+    //     ]);
+    //     echo 'ncn1';
+    //     // User::where("id", Auth::user()->id)->create(["account_number" => $form['account_number']]);
 
-        User::where("id", Auth::user()->id)->create(["account_number" => $form['account_number']]);
-
-    }
+    // }
 }

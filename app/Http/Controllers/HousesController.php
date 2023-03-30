@@ -30,18 +30,25 @@ class HousesController extends Controller
     }
 
 
-    public function updatePaymentAccount(Request $request)
-    {
-        $form = $request->validate([
-            'account_numer' => 'required',
-            'sort_code' => 'required',
-        ]);
+    // public function updatePaymentAccount(Request $request)
+    // {
+    //     $form = $request->validate([
+    //         'account_numer' => 'required',
+    //         'sort_code' => 'required',
+    //     ]);
 
-        DB::table('users')
-            ->updateOrInsert(
-                ['account_number' => '123', 'sort_code' => '34'],
-                ['id' => '1']
-            );
+    //     echo '2';
+    //     dd($form);
+    //     // DB::table('users')->updateOrInsert(['account_number' => '123', 'sort_code' => '34'],['id' => '1']);
+    // }
+
+    public function updateLandlordPayment(Request $request){
+        $account_number = $request['account_number'];
+        $sort_code = $request['sort_code'];
+
+        DB::table('users')->update(['account_number' => $account_number, 'sort_code' => $sort_code],['id' => Auth::user()->id]);
+        
+        return redirect(Route('create_house_page'));
     }
 
     // create house

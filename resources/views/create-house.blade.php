@@ -12,9 +12,9 @@
 
 <body>
     <div class="container pt-5 mb-5   fw-bolder">
-        @if ($account[0]->account_number == null)
+        @if ($account[0]->account_number == 'NULL')
             <p class="lead">Provide your account details, before you create a House, so you can receive funds</p>
-            <form action="{{route('update_account_details')}}" method="post">
+            <form method="post" action="{{route('update_account_details')}}">
                 @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="account_number" placeholder="account nummber"
@@ -151,15 +151,15 @@
                 {{-- <div class="col-md-4  pb-3">
                 <label for="inputCity" class="form-label">Account </label>
                 <input type="file" class="form-control" id="inputCity" name="image1">
-            </div>
-            <div class="col-md-4  pb-3">
-                <label for="inputZip" class="form-label">House Image 2</label>
-                <input type="file" class="form-control" id="inputZip" name="image2">
-            </div>
-            <div class="col-md-4  pb-3">
-                <label for="inputZip" class="form-label">House Image 3</label>
-                <input type="file" class="form-control" id="inputZip" name="image3">
-            </div> --}}
+                </div>
+                <div class="col-md-4  pb-3">
+                    <label for="inputZip" class="form-label">House Image 2</label>
+                    <input type="file" class="form-control" id="inputZip" name="image2">
+                </div>
+                <div class="col-md-4  pb-3">
+                    <label for="inputZip" class="form-label">House Image 3</label>
+                    <input type="file" class="form-control" id="inputZip" name="image3">
+                </div> --}}
 
 
                 {{-- <div class="col-12">
@@ -169,7 +169,7 @@
                         Check me out
                     </label>
                 </div>
-            </div> --}}
+                </div> --}}
 
 
                 <div class="col-12 light_bg pb-3 pt-3">
