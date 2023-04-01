@@ -185,9 +185,11 @@ class OrdersController extends Controller
         ]);
 
         $house = Houses::select('*')->where('id', $productId)->get();
+        $landLord = User::select('*')->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
         return view('receipt', [
             'house' => $house,
-            'reference' => $reference
+            'reference' => $reference,
+            'landLord' => $landLord
         ]);
     
     }
