@@ -29,7 +29,7 @@
                     <div class="vr"></div>
                 </div>  
 
-                <button class="btn btn-outline-success">Print</button>
+                <button onclick="window.print()" class="btn btn-outline-success">Print</button>
             </div>
 
             <div class="col fs-3 align-self-center">
