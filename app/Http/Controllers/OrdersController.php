@@ -185,7 +185,10 @@ class OrdersController extends Controller
         ]);
 
         $house = Houses::select('*')->where('id', $productId)->get();
-        // return view('receipt')
+        return view('receipt', [
+            'house' => $house,
+            'reference' => $reference
+        ]);
     
     }
 }
