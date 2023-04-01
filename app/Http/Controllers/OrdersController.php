@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Houses;
+use App\Models\Orders;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -61,11 +62,13 @@ class OrdersController extends Controller
             $sort_code =  $landlord_details[0]->sort_code;
             $account_name = $landlord_details[0]->name;
 
-            return $this->verifyLandLordDetails($acccount_number, $sort_code, $account_name, $description, $price, $duration);
+            return $this->verifyLandLordDetails($acccount_number, $sort_code, $account_name, $description, $price, $duration,
+                                                $landlord_id, $productId, $reference
+            );
         }
     }
 
-    public function verifyLandLordDetails($account_no, $sort_code, $account_name, $description, $price, $duration)
+    public function verifyLandLordDetails($account_no, $sort_code, $account_name, $description, $price, $duration, $landlord_id, $productId, $reference)
     {
 
         $curl = curl_init();
@@ -94,12 +97,12 @@ class OrdersController extends Controller
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            return $this->transferRecipient($account_name, $account_no, $sort_code, $description, $price, $duration);
+            return $this->transferRecipient($account_name, $account_no, $sort_code, $description, $price, $duration, $landlord_id, $productId, $reference);
         }
     }
 
     // get recipient code for Landlords
-    public function transferRecipient($account_name, $acccount_number, $sort_code, $description, $price, $duration)
+    public function transferRecipient($account_name, $acccount_number, $sort_code, $description, $price, $duration, $landlord_id, $productId, $reference)
     {
         $url = "https://api.paystack.co/transferrecipient";
 
@@ -135,12 +138,12 @@ class OrdersController extends Controller
         $data = json_decode($result, true);
         $recipient_code =  $data['data']['recipient_code'];
         if ($data['status'] == 1) {
-            return $this->transferMoney($recipient_code, $description, $price, $duration);
+            return $this->transferMoney($recipient_code, $description, $price, $duration, $landlord_id, $productId, $reference);
         }
     }
 
     // transfer money to Landlord
-    public function transferMoney($recipient_code, $description, $price, $duration)
+    public function transferMoney($recipient_code, $description, $price, $duration, $landlord_id, $productId, $reference)
     {
         $random_string = 0;
         for ($i = 1; $i <= 14; $i++) {
@@ -177,6 +180,7 @@ class OrdersController extends Controller
 
         //execute post
         $result = curl_exec($ch);
-        echo $result;
+        Orders::create([$productId, $landlord_id, $reference, $recipient_code, $random_string]);
+        // echo $result;
     }
 }

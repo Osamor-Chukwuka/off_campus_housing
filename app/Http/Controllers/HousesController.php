@@ -28,20 +28,8 @@ class HousesController extends Controller
             return redirect('/');
         }
     }
-
-
-    // public function updatePaymentAccount(Request $request)
-    // {
-    //     $form = $request->validate([
-    //         'account_numer' => 'required',
-    //         'sort_code' => 'required',
-    //     ]);
-
-    //     echo '2';
-    //     dd($form);
-    //     // DB::table('users')->updateOrInsert(['account_number' => '123', 'sort_code' => '34'],['id' => '1']);
-    // }
-
+    
+    // update Landlord payment details
     public function updateLandlordPayment(Request $request){
         $account_number = $request['account_number'];
         $sort_code = $request['sort_code'];
