@@ -180,7 +180,12 @@ class OrdersController extends Controller
 
         //execute post
         $result = curl_exec($ch);
-        Orders::create([$productId, $landlord_id, $reference, $recipient_code, $random_string]);
-        // echo $result;
+        Orders::create(['productId' => $productId, 'landLordId' => $landlord_id, 'customer_reference_number' => $reference, 
+                         'landLord_recipient_code' => $recipient_code,  'landLord_reference_number' => $random_string
+        ]);
+
+        $house = Houses::select('*')->where('id', $productId)->get();
+        // return view('receipt')
+    
     }
 }
