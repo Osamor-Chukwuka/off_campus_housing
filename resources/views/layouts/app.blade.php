@@ -65,7 +65,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a href="{{route('create_house_page')}}" class="dropdown-item me-5">Create House</a>
                                     <a href="{{route('my_houses')}}" class="dropdown-item me-5">My Houses</a>
-                                    <a href="{{route('create_house_page')}}" class="dropdown-item me-5">Rented/Bought houses</a>
+                                    <a href="{{route('landlord_rented_houses')}}" class="dropdown-item me-5">Rented/Bought houses</a>
                                 </div>
                             </li>
                                 
