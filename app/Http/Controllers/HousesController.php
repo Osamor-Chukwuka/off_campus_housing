@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Houses;
+use App\Models\Orders;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -138,5 +139,12 @@ class HousesController extends Controller
     {
         Houses::destroy($request->house_id);
         return redirect(Route('my_houses'))->with('status', 'House removed successfully');
+    }
+
+    public function showRentedHouses(){
+        $ordered_houses = Orders::select('*')->where('landLordId', Auth::user()->id)->get();
+        return view('landlord-rented-houses', [
+            'ordered_houses' => $ordered_houses
+        ]);
     }
 }
