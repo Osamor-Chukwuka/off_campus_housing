@@ -6,6 +6,7 @@ use App\Models\Houses;
 use App\Models\Orders;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -180,7 +181,7 @@ class OrdersController extends Controller
 
         //execute post
         $result = curl_exec($ch);
-        Orders::create(['productId' => $productId, 'landLordId' => $landlord_id, 'customer_reference_number' => $reference, 
+        Orders::create(['productId' => $productId, 'landLordId' => $landlord_id, 'userId' => Auth::user()->id, 'customer_reference_number' => $reference, 
                          'landLord_recipient_code' => $recipient_code,  'landLord_reference_number' => $random_string
         ]);
 

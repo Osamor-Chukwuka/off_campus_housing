@@ -142,9 +142,22 @@ class HousesController extends Controller
     }
 
     public function showRentedHouses(){
+        $houser = [];
+        $tenants = [];
         $ordered_houses = Orders::select('*')->where('landLordId', Auth::user()->id)->get();
+        foreach($ordered_houses as $order){
+            (array_push($houser, Houses::select('*')->where('id', $order->productId )->get()));
+            (array_push($tenants, User::select('*')->where('id', $order->userId )->get()));
+            
+            
+        }
+        // dd($houser);
+        // echo($count[0]) ;
+        
+        // echo $ordered_houses[0]->id
         return view('landlord-rented-houses', [
-            'ordered_houses' => $ordered_houses
+            'houser' => $houser,
+            'tenants' => $tenants
         ]);
     }
 }

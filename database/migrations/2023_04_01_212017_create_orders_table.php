@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('productId');
             $table->string('landLordId');
+            $table->string('userId');
             $table->string('customer_reference_number');
             $table->string('landLord_recipient_code');
             $table->string('landLord_reference_number');
