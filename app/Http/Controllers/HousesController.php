@@ -118,8 +118,10 @@ class HousesController extends Controller
         if (Auth::user()->email == null) {
             return redirect('/');
         } else {
+            $order = Orders::select('productId')->where('productId', $segment)->get();
             return view('full-page', [
-                'house' => $house
+                'house' => $house,
+                'order' => $order
             ]); //fix  this later
         }
     }

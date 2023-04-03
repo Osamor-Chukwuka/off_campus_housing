@@ -82,9 +82,16 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
-                href="/house/pay/{{$house->id}}">Pay Now
-            </a>
+            @if ($order[0]->productId)
+                <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center disabled text-white"
+                    href="/house/pay/{{$house->id}}"><i class="bi bi-exclamation-triangle-fill fs-3 text-danger"></i> Not Available
+                </a>
+            @else
+                <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
+                    href="/house/pay/{{$house->id}}">Pay Now
+                </a>   
+            @endif    
+            
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
                 href="{{route('message_page')}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
