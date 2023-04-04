@@ -123,8 +123,9 @@
                                         not Available
                                     </span></h5>
                             </figcaption>
+                            
                         @else
-                        <h1></h1>
+                        <h1>{{$house->id}}</h1>
                         @endif
 
                         <div class="card-body">
