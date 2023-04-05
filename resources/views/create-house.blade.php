@@ -29,7 +29,7 @@
             <h2 class="pb-3 text-center">CREATE A HOUSE <i
                     class="bi bi-house-fill display-5 text-secondary houseImg"></i>
             </h2>
-            <form class="row g-3 create_house" method="post" action="{{ route('create_house') }}">
+            <form class="row g-3 create_house" method="post" enctype="multipart/form-data" action="{{ route('create_house') }}">
                 @csrf
                 <div class="col-md-6">
                     <label for="type" class="form-label">House Type. <i>e.g Bungalow</i> </label>
@@ -135,16 +135,16 @@
 
                 <div class="col-md-4  pb-3">
                     <label for="inputCity" class="form-label">House Image 1</label>
-                    <input type="file" class="form-control" id="inputCity" name="image1">
+                    <input type="file" class="form-control" id="inputCity" multiple name="images[]">
                 </div>
-                <div class="col-md-4  pb-3">
+                {{-- <div class="col-md-4  pb-3">
                     <label for="inputZip" class="form-label">House Image 2</label>
                     <input type="file" class="form-control" id="inputZip" name="image2">
                 </div>
                 <div class="col-md-4  pb-3">
                     <label for="inputZip" class="form-label">House Image 3</label>
                     <input type="file" class="form-control" id="inputZip" name="image3">
-                </div>
+                </div> --}}
 
 
 

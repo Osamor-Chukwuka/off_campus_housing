@@ -13,18 +13,23 @@
 <body>
     <div class="mb-5">
         <figure style="position: relative;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
+            @php
+                $images = explode('|', $house->images);
+            @endphp
+
+            <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50" alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
-                <h1 class="display-4 w-10 text-uppercase fw-bolder">Rent a <br> Modern House <br> off campus</h1>
+                <h1 class="display-4 w-10 text-uppercase fw-bolder text-reset opacity-100">Rent a <br> Modern House <br> off campus</h1>
             </figcaption>
         </figure>
 
     </div>
     <div class="container text-center">
-        <h1 class="display-1 fw-light">{{$house->type}}</h1>
+        <h1 class="display-1 fw-light">{{ $house->type }}</h1>
         <h1><i class="bi bi-dash-lg fs-1 display-1 fw-bolder h1 text-warning"></i></h1>
-        <p style="padding-right: 13%; padding-left:13%" class="text-center fs-5 fw-semi-bold mb-5">{{$house->address}}</p>
+        <p style="padding-right: 13%; padding-left:13%" class="text-center fs-5 fw-semi-bold mb-5">{{ $house->address }}
+        </p>
     </div>
 
     <div class="mb-5 pb-5">
@@ -37,37 +42,20 @@
                 {{-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                     aria-label="Slide 3"></button> --}}
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    {{-- <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="..."> --}}
-                    <div class="hstack gap-3">
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
+            <div class="carousel-inner container">
+                @foreach ($images as $item)
+                    <div class="carousel-item active">
+                        {{-- <img src="{{ asset('storage/images/header-img3.jpg') }}" class="d-block w-100" alt="..."> --}}
+                        <div class="hstack gap-5">
+                            @foreach ($images as $item)
+                            <div class="bg-body-tertiary border">
+                                <img src="{{ asset('storage/images/houses/' . $item) }}" class="d-block"  alt="...">
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="hstack gap-3">
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="bg-body-tertiary border">
-                            <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="carousel-item">
-                    <img src="{{ asset('images/header-img3.jpg') }}" class="d-block w-100" alt="...">
-                </div> --}}
+                @endforeach
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">
@@ -84,17 +72,18 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
             @if ($order != '[]' && $order[0]->productId)
                 <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center disabled text-white"
-                    href="/house/pay/{{$house->id}}"><i class="bi bi-exclamation-triangle-fill fs-3 text-danger"></i> Not Available
+                    href="/house/pay/{{ $house->id }}"><i
+                        class="bi bi-exclamation-triangle-fill fs-3 text-danger"></i> Not Available
                 </a>
             @else
                 <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
-                    href="/house/pay/{{$house->id}}">Pay Now
-                </a>   
+                    href="/house/pay/{{ $house->id }}">Pay Now
+                </a>
             @endif
-            
+
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="{{route('message_page')}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+                href="{{ route('message_page') }}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
             </a>
         </div>
     </div>
@@ -107,7 +96,7 @@
             <div class="col-6">
                 <div>
                     <h2 class="fw-bolder">ABOUT</h2>
-                    <p class="fs-5">{{$house->about}}</p><br>
+                    <p class="fs-5">{{ $house->about }}</p><br>
                 </div>
 
 
@@ -143,7 +132,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body border border-warning">
-                                This House Cost <strong>{{'N'.$house->price .'/' .$house->duration}}</strong>
+                                This House Cost <strong>{{ 'N' . $house->price . '/' . $house->duration }}</strong>
                             </div>
                         </div>
                     </div>
@@ -158,7 +147,7 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body border border-warning">
-                                {{$house->gender}}
+                                {{ $house->gender }}
                             </div>
                         </div>
                     </div>

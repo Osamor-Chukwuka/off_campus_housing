@@ -13,7 +13,7 @@
 <body>
     <div class="mb-5">
         <figure style="position: relative;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
                 <h1 class="display-4 w-10 text-uppercase fw-bolder">Rent a <br> Modern House <br> off campus</h1>
@@ -110,18 +110,19 @@
                 @php
                     $counter++;
                     $house_id = $house->id;
+                    $images = explode('|', $house->images);
                 @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
-                        <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/images/houses/' . $images[0]) }}" class="card-img-top opacity-50" alt="...">
                         @if ($order->where('productId', '>=', $house_id)->exists() == true)
                             <figcaption
                                 style="position: absolute; bottom: 0; left: 0; right: 0%;  padding-left: 10px; padding-bottom: 37%"
                                 class="text-white bold">
-                                <h5 class=" w-10 text-uppercase text-center text-danger fw-bolder bg-blur"><i
-                                        class="bi display-1 bi-exclamation-triangle-fill text-danger"></i><span
+                                <h5 class=" w-10 text-uppercase text-center text-success fw-bolder bg-blur"><i
+                                        class="bi display-1 bi-exclamation-triangle-fill text-success"></i><span
                                         class="fs-3 ">
-                                        not Available
+                                        SOLD OUT
                                     </span></h5>
                             </figcaption>
                         @else
@@ -221,7 +222,7 @@
 {{-- <div class="row allign-items-center g-5">
     <div class="col-3">
         <div class="card border-0" style="width: 18rem;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="" class="text-decoration-none">
                     <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
@@ -235,7 +236,7 @@
 
     <div class="col-3">
         <div class="card border-0" style="width: 18rem;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="" class="text-decoration-none">
                     <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
@@ -248,7 +249,7 @@
 
     <div class="col-3">
         <div class="card border-0" style="width: 18rem;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="" class="text-decoration-none">
                     <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>
@@ -261,7 +262,7 @@
 
     <div class="col-3">
         <div class="card border-0" style="width: 18rem;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="" class="text-decoration-none">
                     <h2 class="card-title fs-4 fw-bolder ">17TH AVENUE</h2>

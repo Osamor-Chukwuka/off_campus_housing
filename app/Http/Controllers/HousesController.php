@@ -57,16 +57,31 @@ class HousesController extends Controller
             'tenants' => 'required',
             'roomates' => 'required',
             'zip' => 'required',
-            'image1' => 'required',
-            'image2' => 'required',
-            'image3' => 'required',
+            'images' => 'required',
+            // 'image2' => 'required',
+            // 'image3' => 'required',
         ]);
+
+        $image = [];
+        if($files = $request->file('images')){
+            foreach ($files as $file) {
+            $destination_path = 'public/images/houses';
+            $image_name = $file->getClientOriginalName();
+            $path = $file->storeAs($destination_path, $image_name);
+            (array_push($image, $image_name));
+            }
+            
+        }
+
+        $form['images'] = implode('|', $image);
 
         $form['landlord_id'] = Auth::user()->id;
 
+        // dd($image);
+
         Houses::create($form);
         return redirect('/')->with('message', "House created successfully");
-        // dd($form);
+        dd($form);
     }
 
     // Search houses characteristics

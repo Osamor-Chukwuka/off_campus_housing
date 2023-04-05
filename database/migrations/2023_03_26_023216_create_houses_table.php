@@ -27,9 +27,7 @@ return new class extends Migration
             $table->string('tenants');
             $table->string('roomates');
             $table->string('zip');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
+            $table->string('images');
             $table->timestamps();
         });
     }

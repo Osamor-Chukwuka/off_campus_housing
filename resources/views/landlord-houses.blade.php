@@ -13,7 +13,7 @@
 <body>
     <div class="mb-5">
         <figure style="position: relative;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
                 <h1 class="display-4 w-10 text-uppercase fw-bolder">Rent a <br> Modern House <br> off campus</h1>
@@ -113,7 +113,7 @@
                 @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
-                        <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="" class="text-decoration-none">
                                 <h2 class="card-title fs-4 fw-bolder ">{{ $house->type }}</h2>

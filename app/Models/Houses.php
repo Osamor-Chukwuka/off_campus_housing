@@ -10,7 +10,7 @@ class Houses extends Model
     use HasFactory;
 
     protected $fillable = ['landlord_id', 'type', 'address', 'about', 'price', 'duration', 'gender', 'security', 'features', 'furnishings', 
-    'city', 'tenants', 'roomates', 'zip', 'image1', 'image2', 'image3'];
+    'city', 'tenants', 'roomates', 'zip', 'images'];
 
     protected $table = 'houses';
 }

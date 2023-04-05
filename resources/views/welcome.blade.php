@@ -13,7 +13,7 @@
 <body>
     <div class="mb-5">
         <figure style="position: relative;">
-            <img src="{{ asset('images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
+            <img src="{{ asset('storage/images/header-img3.jpg') }}" class="img-fluid w-100" alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
                 @if (session('status'))
@@ -48,7 +48,7 @@
         <div class="row align-items-center">
             <div class="col ">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house1.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house1.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -59,7 +59,7 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house2.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house2.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -70,7 +70,7 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house3.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house3.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -85,7 +85,7 @@
         <div class="row align-items-center">
             <div class="col ">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house1.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house1.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -96,7 +96,7 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house2.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house2.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -107,7 +107,7 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('images/house3.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/house3.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -161,7 +161,7 @@
     <div class="container mt-5 pt-5 mb-4">
         <h2 class="fw-bolder text-center">What Our Customers Says</h2>
         <div class="" style="">
-            <img src="{{ asset('images/black-teen.jpg') }}" class="img img-thumbnail  float-start" style="width: 12%"
+            <img src="{{ asset('storage/images/black-teen.jpg') }}" class="img img-thumbnail  float-start" style="width: 12%"
                 alt="..."><br><br>
             <span class="ms-3 fw-bolder fs-5">Majority <i class="bi bi-dash-lg"></i></span><br>
             <span class="ms-3 text-start">There are many variations of passages of Lorem Ipsum available, but the
