@@ -109,11 +109,12 @@
             @foreach ($houses as $house)
                 @php
                     $counter++;
+                    $house_id = $house->id;
                 @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('images/header-img3.jpg') }}" class="card-img-top" alt="...">
-                        @if ($order->where('productId', $house->id)->exists())
+                        @if ($order->where('productId', '>=', $house_id)->exists() == true)
                             <figcaption
                                 style="position: absolute; bottom: 0; left: 0; right: 0%;  padding-left: 10px; padding-bottom: 37%"
                                 class="text-white bold">
@@ -123,9 +124,7 @@
                                         not Available
                                     </span></h5>
                             </figcaption>
-                            
                         @else
-                        <h1>{{$house->id}}</h1>
                         @endif
 
                         <div class="card-body">

@@ -101,7 +101,7 @@ class HousesController extends Controller
         if (Auth::user()->email == null) {
             return redirect('/');
         } else {
-             $order = Orders::where('id', TRUE);
+             $order = DB::table('orders')->where('id', '>', 0);
             return view('houses', [
                 'houses' => $houses,
                 'current_route' => $current_route,
