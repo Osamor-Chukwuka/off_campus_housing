@@ -26,7 +26,7 @@
         <h1><i class="bi bi-dash-lg fs-1 display-1 fw-bolder h1 text-warning"></i></h1>
         <p style="padding-right: 13%; padding-left:13%" class="text-start fs-5 fw-semi-bold mb-5">Here, you will find
             all the Houses you have
-            that has been rented or bought
+            that has been rented or bought.
         </p>
 
 
