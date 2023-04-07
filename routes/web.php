@@ -64,3 +64,7 @@ Route::get('/my-houses/rented', [HousesController::class, 'showRentedHouses'])->
 // Display Message page
 // this is just a dummy route. when you're fully implementing the app, the route should end with message/landlordID, which will lead the user to the inbox of the Landlord. but there should be another general route in the pages header to link to the message section, not a particular landlord DM. You Get? young man
 Route::get('/houses/message', [MessageController::class, 'displayMessagePage'])->name('message_page');
+
+Route::get('/messages', [App\Http\Controllers\MessageController::class, 'fetchMessages']);
+Route::post('/messages', [App\Http\Controllers\MessageController::class, 'sendMessage']);
+
