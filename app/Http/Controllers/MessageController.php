@@ -29,17 +29,15 @@ class MessageController extends Controller
             // echo $all;
             // check user tables for $all_landlord details
             $all_landlords_details = Auth::user()->where('id', $all->landlord_id)->where('Account-type', 'LandLord')->get();
-
-            echo($all_landlords_details[0]);
+            // echo();
+            (array_push($all_landlord, $all_landlords_details[0]));
         }
-    
-        
 
         
-        // return view('Message_page', [
-        //     'messages' => $messages,
-        //     'all_landlord' => $all_landlord,
-        //     'landlord_details' => $landlord_details
-        // ]);
+        return view('Message_page', [
+            'messages' => $messages,
+            'all_landlord' => $all_landlord,
+            'landlord_details' => $landlord_details
+        ]);
     }
 }

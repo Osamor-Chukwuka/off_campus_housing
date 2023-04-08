@@ -27,15 +27,19 @@
                                 <input type="text" class="form-control" placeholder="Search...">
                             </div>
                             <ul class="list-unstyled chat-list mt-2 mb-0">
+                                {{-- populate the recent chats with real data --}}
                                 @foreach ($all_landlord as $a_landlord)
-                                    {{$a_landlord}}
-                                    <li class="clearfix">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">Vincent Porter</div>
-                                        <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
-                                    </div>
-                                </li>
+                                    
+                                    <a href="" class="recent_chats">
+                                        <li class="clearfix">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                                            <div class="about">
+                                                <div class="name">{{$a_landlord->name}}</div>
+                                                <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
+                                            </div>
+                                        </li>
+                                    </a>
+                                    
                                 @endforeach
                             </ul>
                         </div>
@@ -322,6 +326,12 @@
         content: " ";
         clear: both;
         height: 0
+    }
+
+    /* My custom styling */
+    .recent_chats{
+        text-decoration: none;
+        color: black;
     }
 
     @media only screen and (max-width: 767px) {
