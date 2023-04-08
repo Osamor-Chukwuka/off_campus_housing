@@ -83,7 +83,7 @@
 
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="{{ route('message_page') }}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+                href="/houses/message/{{$house->landlord_id}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
             </a>
         </div>
     </div>
