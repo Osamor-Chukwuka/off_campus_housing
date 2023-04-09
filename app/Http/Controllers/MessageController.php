@@ -14,10 +14,10 @@ class MessageController extends Controller
         $landlord_details = Auth::user()->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
 
         $user = User::find(1);
-        $user_id =$user->messages()->get();
+        $user_id = Auth::user()->id;
 
         // get all messages sent to current user
-        $messages = $user->messages()->where('user_id', Auth::user()->id)->where('landlord_id', $landlord_id)->get('message');
+        $messages = $user->messages()->where('user_id', Auth::user()->id)->where('landlord_id', $landlord_id)->get();
 
         // get all landlord that have sent messages, or have chatted with recently
         $all_landlord_id = $user->messages()->where('user_id', Auth::user()->id)->get('landlord_id');
@@ -33,11 +33,13 @@ class MessageController extends Controller
             (array_push($all_landlord, $all_landlords_details[0]));
         }
 
+        // echo($messages);
         
         return view('Message_page', [
             'messages' => $messages,
             'all_landlord' => $all_landlord,
-            'landlord_details' => $landlord_details
+            'landlord_details' => $landlord_details,
+            'user_id' => $user_id
         ]);
     }
 }

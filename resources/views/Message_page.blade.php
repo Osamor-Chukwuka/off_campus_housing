@@ -29,17 +29,17 @@
                             <ul class="list-unstyled chat-list mt-2 mb-0">
                                 {{-- populate the recent chats with real data --}}
                                 @foreach ($all_landlord as $a_landlord)
-                                    
-                                    <a href="" class="recent_chats">
+                                    <a href="/houses/message/{{ $a_landlord->id }}" class="recent_chats">
                                         <li class="clearfix">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                alt="avatar">
                                             <div class="about">
-                                                <div class="name">{{$a_landlord->name}}</div>
-                                                <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins ago </div>
+                                                <div class="name">{{ $a_landlord->name }}</div>
+                                                <div class="status"> <i class="fa fa-circle offline"></i> left 7 mins
+                                                    ago </div>
                                             </div>
                                         </li>
                                     </a>
-                                    
                                 @endforeach
                             </ul>
                         </div>
@@ -53,7 +53,7 @@
                                                 alt="avatar">
                                         </a>
                                         <div class="chat-about">
-                                            <h6 class="m-b-0">{{$landlord_details[0]->name}}</h6>
+                                            <h6 class="m-b-0">{{ $landlord_details[0]->name }}</h6>
                                             <small>Last seen: 2 hours ago</small>
                                         </div>
                                     </div>
@@ -70,29 +70,36 @@
                                 </div>
                             </div>
                             <div class="chat-history">
-                                <ul class="m-b-0">
-                                    <li class="clearfix">
-                                        <div class="message-data text-right">
-                                            <span class="message-data-time">10:10 AM, Today</span>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                                                alt="avatar">
-                                        </div>
-                                        <div class="message other-message float-right"> Hi Aiden, how are you? How is
-                                            the project coming along? </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:15 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Project has been already finished and I have
-                                            results to show you.</div>
-                                    </li>
+                                <ul class="m-b-0 overflow-auto">
+
+                                    @foreach ($messages as $item)
+                                        @if ($item->landlord_id == $user_id)
+                                            <li class="clearfix">
+                                                <div class="message other-message float-right"> {{ $item->message }}
+                                                </div>
+                                            </li>
+                                        @else
+                                            <li class="clearfix">
+                                                <div class="message-data">
+                                                    <span class="message-data-time">10:12 AM, Today</span>
+                                                </div>
+                                                <div class="message my-message">Are we meeting today?</div>
+                                            </li>
+                                        @endif
+
+
+
+
+                                        {{-- <li class="clearfix">
+                                            <div class="message-data">
+                                                <span class="message-data-time">10:15 AM, Today</span>
+                                            </div>
+                                            <div class="message my-message">Project has been already finished and I have
+                                                results to show you.</div>
+                                        </li> --}}
+                                    @endforeach
+
+
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">
@@ -109,6 +116,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
@@ -329,7 +337,7 @@
     }
 
     /* My custom styling */
-    .recent_chats{
+    .recent_chats {
         text-decoration: none;
         color: black;
     }
