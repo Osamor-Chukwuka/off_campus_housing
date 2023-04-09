@@ -15,6 +15,7 @@
         <figure style="position: relative;">
             @php
                 $images = explode('|', $house->images);
+                $user_id = 0;
             @endphp
 
             <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50" alt="...">
@@ -83,7 +84,7 @@
 
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="/houses/message/{{$house->landlord_id}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+                href="/houses/message/{{$house->landlord_id}}/{{$user_id}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
             </a>
         </div>
     </div>

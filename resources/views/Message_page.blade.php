@@ -29,7 +29,7 @@
                             <ul class="list-unstyled chat-list mt-2 mb-0">
                                 {{-- populate the recent chats with real data --}}
                                 @foreach ($all_landlord as $a_landlord)
-                                    <a href="/houses/message/{{ $a_landlord->id }}" class="recent_chats">
+                                    <a href="/houses/message/{{$a_landlord->id}}/{{$user_id}}" class="recent_chats">
                                         <li class="clearfix">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                 alt="avatar">
@@ -75,17 +75,27 @@
                                     @foreach ($messages as $item)
                                         @if ($item->landlord_id == $user_id)
                                             <li class="clearfix">
+                                                <div class="message-data">
+                                                    <span class="message-data-time">10:15 AM, Today</span>
+                                                </div>
                                                 <div class="message other-message float-right"> {{ $item->message }}
                                                 </div>
                                             </li>
-                                        @else
+                                        @endif
+
+                                        @if ($item->user_id == $user_id)
                                             <li class="clearfix">
-                                                <div class="message-data">
-                                                    <span class="message-data-time">10:12 AM, Today</span>
+                                                <div class="message other-message ">
+                                                    <div class="message-data bg-white">
+                                                        <span class="message-data-time">10:15 AM, Today</span>
+                                                    </div>
+                                                    {{ $item->message }} 
                                                 </div>
-                                                <div class="message my-message">Are we meeting today?</div>
                                             </li>
                                         @endif
+                                            
+
+                                        
 
 
                                         {{-- <li class="clearfix">
@@ -101,7 +111,7 @@
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">
-                                <form action="/messages/send/{{$user_id}}" method="post">
+                                <form action="/messages/send/{{$user_id}}/{{$landlord_idd}}" method="post">
                                     @csrf
                                     <div class="input-group mb-0">
                                         <input type="text" name="message" class="form-control" placeholder="Enter text here...">
