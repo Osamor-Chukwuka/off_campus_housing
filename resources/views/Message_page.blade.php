@@ -88,8 +88,6 @@
                                         @endif
 
 
-
-
                                         {{-- <li class="clearfix">
                                             <div class="message-data">
                                                 <span class="message-data-time">10:15 AM, Today</span>
@@ -103,12 +101,18 @@
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">
-                                <div class="input-group mb-0">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-send"></i></span>
+                                <form action="/messages/send/{{$user_id}}" method="post">
+                                    @csrf
+                                    <div class="input-group mb-0">
+                                        <input type="text" name="message" class="form-control" placeholder="Enter text here...">
+                                        <div class="input-group-prepend">
+                                            <button type="submit" class="border-0">
+                                                <span class="input-group-text"><i class="fa fa-send"></i></span>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter text here...">
-                                </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>

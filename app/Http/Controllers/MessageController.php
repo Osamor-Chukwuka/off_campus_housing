@@ -42,4 +42,8 @@ class MessageController extends Controller
             'user_id' => $user_id
         ]);
     }
+
+    public function sendMessage($user_id){
+        echo "works";
+    }
 }
