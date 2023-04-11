@@ -29,7 +29,8 @@
                             <ul class="list-unstyled chat-list mt-2 mb-0">
                                 {{-- populate the recent chats with real data --}}
                                 @foreach ($all_landlord as $a_landlord)
-                                    <a href="/houses/message/{{$a_landlord->id}}/{{$user_id}}" class="recent_chats">
+                                    <a href="/houses/message/{{ $a_landlord->id }}/{{ $user_id }}"
+                                        class="recent_chats">
                                         <li class="clearfix">
                                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                 alt="avatar">
@@ -73,48 +74,61 @@
                                 <ul class="m-b-0 overflow-auto">
 
                                     @foreach ($messages as $item)
-                                        @if ($item->landlord_id == $user_id)
-                                            <li class="clearfix">
-                                                <div class="message-data">
-                                                    <span class="message-data-time">10:15 AM, Today</span>
-                                                </div>
-                                                <div class="message other-message float-right"> {{ $item->message }}
-                                                </div>
-                                            </li>
-                                        @endif
+                                        @foreach ($users_id as $id)
+                                        {{-- {{$item['user_id']}} --}}
+                                            @if ($id['user_id'] == $item['user_id'])
+                                                @if ($item['user_id'] != $landlord_idd)
+                                                    <li class="clearfix">
+                                                        <div class="message-data">
+                                                            <span class="message-data-time">10:15 AM, Today</span>
+                                                        </div>
+                                                        <div class="message other-message">
+                                                            {{ $item->message }}
+                                                            @break
+                                                        </div>
+                                                    </li>
+                                                   
+                                                @endif
+                                                {{-- @php
+                                                    $user_id = Auth::user()->id;
+                                                @endphp --}}
 
-                                        @if ($item->user_id == $user_id)
-                                            <li class="clearfix">
-                                                <div class="message other-message ">
-                                                    <div class="message-data bg-white">
+                                                @if ($item['user_id'] == $landlord_idd)
+                                                    <li class="clearfix">
+                                                        <div class="message other-message float-right ">
+                                                            <div class="message-data bg-white">
+                                                                <span class="message-data-time">10:15 AM, Today</span>
+                                                            </div>
+                                                            {{ $item->message }}
+                                                            @break
+                                                        </div>
+                                                    </li>
+                                                @endif
+
+
+
+
+                                                {{-- <li class="clearfix">
+                                                    <div class="message-data">
                                                         <span class="message-data-time">10:15 AM, Today</span>
                                                     </div>
-                                                    {{ $item->message }} 
-                                                </div>
-                                            </li>
-                                        @endif
-                                            
-
-                                        
-
-
-                                        {{-- <li class="clearfix">
-                                            <div class="message-data">
-                                                <span class="message-data-time">10:15 AM, Today</span>
-                                            </div>
-                                            <div class="message my-message">Project has been already finished and I have
-                                                results to show you.</div>
-                                        </li> --}}
+                                                    <div class="message my-message">Project has been already finished and I have
+                                                        results to show you.
+                                                    </div>
+                                                </li> --}}
+                                            @endif
+                                        @endforeach
                                     @endforeach
 
 
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">
-                                <form action="/messages/send/{{$user_id}}/{{$landlord_idd}}" method="post">
+                                <form action="/messages/send/{{ $user_id }}/{{ $landlord_idd }}" method="post">
                                     @csrf
                                     <div class="input-group mb-0">
-                                        <input type="text" name="message" class="form-control" placeholder="Enter text here...">
+                                        <input type="text" name="message" class="form-control"
+                                            placeholder="Enter text here...">
                                         <div class="input-group-prepend">
                                             <button type="submit" class="border-0">
                                                 <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -248,7 +262,7 @@
     }
 
     .chat .chat-history .message-data {
-        margin-bottom: 15px
+        margin-bottom: 1px
     }
 
     .chat .chat-history .message-data img {

@@ -15,7 +15,7 @@ class MessageController extends Controller
         $landlord_details = Auth::user()->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
 
         $user = User::find(1);
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
 
 
         $account_type = 'Account-type';
@@ -24,7 +24,8 @@ class MessageController extends Controller
             $messages = Message::select()->where('user_id', Auth::user()->id)->where('landlord_id', $landlord_id)->get();
         }else{
             // get all messages sent to current user
-            $messages = Message::select()->where('user_id', $user_id)->where('landlord_id', $landlord_id)->get();
+            $messages = Message::select()->where('landlord_id', $landlord_id)->get();
+            $users_id = Message::select('user_id')->where('landlord_id', $landlord_id)->get();
         }
        
 
@@ -42,13 +43,14 @@ class MessageController extends Controller
             (array_push($all_landlord, $all_landlords_details[0]));
         }
 
-        // echo($messages);
+        // dd();
         
         return view('Message_page', [
             'messages' => $messages,
             'all_landlord' => $all_landlord,
             'landlord_details' => $landlord_details,
             'user_id' => $user_id,
+            'users_id' => $users_id,
             'landlord_idd' => $landlord_id
         ]);
     }
