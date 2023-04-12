@@ -328,11 +328,27 @@
                                     <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-comment"
                                         alt="avatar"> <span class="ms-2 h5 text-black bolder fw-5">User 1</span>
                                 </a>
-                                <div class="chat-about">
+                                <div class="chat-about mb-5">
                                     <h6 class="m-b-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                         Similique dolores nulla explicabo cumque ipsam veniam eos nesciunt esse magni
                                         totam iure autem facilis est, repellat velit reiciendis quos vero. Nulla.</h6>
                                     <small>Last seen: 2 hours ago</small>
+                                </div>
+
+                                <div class="chat-message clearfix">
+                                    <form action="" method="post">
+                                        @csrf
+                                        <div class="input-group mb-0">
+                                            <input type="text" name="message" class="form-control"
+                                                placeholder="Enter text here...">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="border-0">
+                                                    <span class="input-group-text"><i class="bi bi-send-fill"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                
                                 </div>
                             </div>
                         </div>
