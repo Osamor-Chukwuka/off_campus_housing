@@ -11,4 +11,12 @@ class Comment extends Model
 
     protected $fillable = ['user_id', 'landlord_id', 'house_id', 'message'];
     protected $table = 'comments';
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function houses(){
+        return $this->belongsTo(Houses::class);
+    }
 }

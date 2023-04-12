@@ -13,4 +13,8 @@ class Houses extends Model
     'city', 'tenants', 'roomates', 'zip', 'images'];
 
     protected $table = 'houses';
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
