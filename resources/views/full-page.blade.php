@@ -16,6 +16,8 @@
             @php
                 $images = explode('|', $house->images);
                 $user_id = 0;
+                $landlord_id = $house->landlord_id;
+                $house_id = $house->id;
             @endphp
 
             <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50"
@@ -336,7 +338,7 @@
                                 </div>
 
                                 <div class="chat-message clearfix">
-                                    <form action="" method="post">
+                                    <form action="/house/comment/{{$house_id}}/{{$landlord_id}}" method="post">
                                         @csrf
                                         <div class="input-group mb-0">
                                             <input type="text" name="message" class="form-control"

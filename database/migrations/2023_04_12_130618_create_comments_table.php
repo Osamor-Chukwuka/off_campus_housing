@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('landlord_id');
+            $table->foreignId('house_id')->constrained('houses');
+            $table->text('message');
             $table->timestamps();
         });
     }
