@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HousesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrdersController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +47,7 @@ Route::post('houses/search', [HousesController::class, 'search'])->name('search'
 Route::post('houses/search/redirect', [HousesController::class, 'searchRedirect'])->name('search-redirect');
 
 // display building full page
-Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details');
+Route::get('/houses/full-page/{house}', [HousesController::class, 'fullPage'])->name('full-details')->middleware('prevent-back-history');
 
 // Add Comments
 Route::post('house/comment/{house_id}/{landlord_id}', [CommentController::class, 'addComment']);
@@ -64,6 +65,11 @@ Route::post('/my-houses/delete', [HousesController::class, 'deleteLandlordHouse'
 
 // Display all houses that belongs to a Landlord that has been rented/bought
 Route::get('/my-houses/rented', [HousesController::class, 'showRentedHouses'])->name('landlord_rented_houses');
+
+// back button
+// Route::get('/back', function(){
+//     return Request::referrer();
+// });
 
 // Display Message page
 // this is just a dummy route. when you're fully implementing the app, the route should end with message/landlordID, which will lead the user to the inbox of the Landlord. but there should be another general route in the pages header to link to the message section, not a particular landlord DM. You Get? young man

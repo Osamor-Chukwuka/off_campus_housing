@@ -22,7 +22,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="fixed-top">
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -53,6 +54,9 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
+                            
+
                         @else
                             <a href="{{route('houses')}}" class="nav-link me-5">Houses</a>
                             @if (Auth::user()->$Account_type == 'LandLord')

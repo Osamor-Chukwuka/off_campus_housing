@@ -114,7 +114,8 @@
                 @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
-                        <img src="{{ asset('storage/images/houses/' . $images[0]) }}" class="card-img-top opacity-50" alt="...">
+                        <img src="{{ asset('storage/images/houses/' . $images[0]) }}" class="card-img-top opacity-50"
+                            alt="...">
                         @if ($order->where('productId', '>=', $house_id)->exists() == true)
                             <figcaption
                                 style="position: absolute; bottom: 0; left: 0; right: 0%;  padding-left: 10px; padding-bottom: 37%"
@@ -175,6 +176,12 @@
 
 
     </div>
+
+    <form action="/">
+        <button class="back btn btn-lg rounded"><i
+                class="bi bi-arrow-left-circle-fill  fs-1 pt-2 text-white bg-warning"></i>
+        </button>
+    </form>
 </body>
 
 </html>
@@ -189,6 +196,26 @@
 
 
 <style>
+    .back {
+        position: fixed;
+        top: 50%;
+        left: 40px;
+        z-index: 9999;
+        width: 52px;
+        height: 57px;
+        text-align: center;
+        line-height: 5px;
+        /* background: #b0b435; */
+        /* color: #ffffff; */
+        cursor: pointer;
+        border: 0;
+        border-radius: 0px;
+        text-decoration: none;
+        transition: opacity 0.2s ease-out;
+        font-size: 28px;
+    }
+
+
     .choose-us {
         background: #0f2480;
     }

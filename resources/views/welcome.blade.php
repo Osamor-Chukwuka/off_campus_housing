@@ -118,7 +118,7 @@
             </div>
         </div>
 
-        <a href="" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
+        <a href="/houses" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
     </div>
 
     <div class=" text-center mt-5 pt-5 mb-4 pb-5 text-white choose-us" style="width: 100%;">

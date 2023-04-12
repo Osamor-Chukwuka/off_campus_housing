@@ -20,6 +20,6 @@ class CommentController extends Controller
 
         Comment::create($form);
 
-        return "Worked o";
+        return back();
     }
 }

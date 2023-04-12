@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Houses;
 use App\Models\Orders;
 use App\Models\User;
@@ -135,13 +136,19 @@ class HousesController extends Controller
         if (Auth::user()->email == null) {
             return redirect('/');
         } else {
+            // Show Comments variables and quaries
+            $messages = Comment::orderBy('created_at', 'asc')->where('house_id', $segment)->get();
+            // $user = User::find(1)->comments()->
+
             $order = Orders::select('productId')->where('productId', $segment)->get();
             return view('full-page', [
                 'house' => $house,
-                'order' => $order
+                'order' => $order,
+                'messages' => $messages
             ]); //fix  this later
         }
     }
+
 
     // Display all houses belonging to each Landlord
     public function myHouses()

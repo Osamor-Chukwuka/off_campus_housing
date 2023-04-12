@@ -314,19 +314,34 @@
                     data-bs-parent="#accordionExample">
                     <div class="accordion-body border border-warning">
                         <div class="">
-                            <div class="">
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info" class="user_name">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-comment"
-                                        alt="avatar"> <span class="ms-2 h5 text-black bolder fw-5">User 1</span>
-                                </a>
-                                <div class="chat-about mb-5">
-                                    <h6 class="m-b-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Similique dolores nulla explicabo cumque ipsam veniam eos nesciunt esse magni
-                                        totam iure autem facilis est, repellat velit reiciendis quos vero. Nulla.</h6>
-                                    <small>Last seen: 2 hours ago</small>
-                                </div>
+                            <div class="overflow-y-auto">
+                                @if ($messages == '[]')
+                                @else
+                                    @foreach ($messages as $message)
+                                        @php
+                                            $user = Auth::user()
+                                                ->where('id', $message->user_id)
+                                                ->get('name');
+                                        @endphp
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info"
+                                            class="user_name">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                                class="img-comment" alt="avatar"> <span
+                                                class="ms-2 h5 text-black bolder fw-5">{{ $user[0]->name }}</span>
+                                        </a>
+                                        <div class="chat-about mb-5">
+                                            <h6 class="m-b-0 fs-5">{{ $message->message }}
+                                            </h6>
+                                            <small class="italics bg-s"><i class="bi bi-calendar"></i>
+                                                {{ $message->created_at }}</small>
+                                        </div>
+                                    @endforeach
 
-                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info" class="user_name">
+                                @endif
+
+
+                                {{-- <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info"
+                                    class="user_name">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-comment"
                                         alt="avatar"> <span class="ms-2 h5 text-black bolder fw-5">User 1</span>
                                 </a>
@@ -335,22 +350,24 @@
                                         Similique dolores nulla explicabo cumque ipsam veniam eos nesciunt esse magni
                                         totam iure autem facilis est, repellat velit reiciendis quos vero. Nulla.</h6>
                                     <small>Last seen: 2 hours ago</small>
-                                </div>
+                                </div> --}}
 
                                 <div class="chat-message clearfix">
-                                    <form action="/house/comment/{{$house_id}}/{{$landlord_id}}" method="post">
+                                    <form action="/house/comment/{{ $house_id }}/{{ $landlord_id }}"
+                                        method="post">
                                         @csrf
                                         <div class="input-group mb-0">
                                             <input type="text" name="message" class="form-control"
                                                 placeholder="Enter text here...">
                                             <div class="input-group-prepend">
                                                 <button type="submit" class="border-0">
-                                                    <span class="input-group-text"><i class="bi bi-send-fill"></i></span>
+                                                    <span class="input-group-text"><i
+                                                            class="bi bi-send-fill"></i></span>
                                                 </button>
                                             </div>
                                         </div>
                                     </form>
-                
+
                                 </div>
                             </div>
                         </div>
@@ -358,6 +375,11 @@
                 </div>
             </div>
         </div>
+        <form action="/houses">
+            <button class="back btn btn-lg rounded"><i
+                    class="bi bi-arrow-left-circle-fill  fs-1 pt-2 text-white bg-warning"></i>
+            </button>
+        </form>
 </body>
 
 </html>
@@ -374,4 +396,34 @@
         text-decoration: none;
         font-weight: bolder;
     }
+
+
+
+    .back {
+        position: fixed;
+        top: 50%;
+        left: 40px;
+        z-index: 9999;
+        width: 52px;
+        height: 57px;
+        text-align: center;
+        line-height: 5px;
+        /* background: #b0b435; */
+        /* color: #ffffff; */
+        cursor: pointer;
+        border: 0;
+        border-radius: 0px;
+        text-decoration: none;
+        transition: opacity 0.2s ease-out;
+        font-size: 28px;
+    }
 </style>
+
+<script>
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function() {
+            window.history.pushState('forward', null, './#');
+            window.history.forward();
+        });
+    }
+</script>
