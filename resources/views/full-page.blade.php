@@ -18,10 +18,12 @@
                 $user_id = 0;
             @endphp
 
-            <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50" alt="...">
+            <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50"
+                alt="...">
             <figcaption style="position: absolute; bottom: 0; left: 0; right: 0;  padding: 70px; padding-bottom: 17%"
                 class="text-white bold">
-                <h1 class="display-4 w-10 text-uppercase fw-bolder text-reset opacity-100">Rent a <br> Modern House <br> off campus</h1>
+                <h1 class="display-4 w-10 text-uppercase fw-bolder text-reset opacity-100">Rent a <br> Modern House <br>
+                    off campus</h1>
             </figcaption>
         </figure>
 
@@ -49,9 +51,10 @@
                         {{-- <img src="{{ asset('storage/images/header-img3.jpg') }}" class="d-block w-100" alt="..."> --}}
                         <div class="hstack gap-5">
                             @foreach ($images as $item)
-                            <div class="bg-body-tertiary border">
-                                <img src="{{ asset('storage/images/houses/' . $item) }}" class="d-block"  alt="...">
-                            </div>
+                                <div class="bg-body-tertiary border">
+                                    <img src="{{ asset('storage/images/houses/' . $item) }}" class="d-block"
+                                        alt="...">
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -84,7 +87,7 @@
 
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="/houses/message/{{$house->landlord_id}}/{{$user_id}}"><i class="bi bi-chat-left-dots-fill fs-3"></i> Message LandLord
+                href="https://wa.me/2348104668125"><i class="bi bi-whatsapp fs-3"></i> Message LandLord
             </a>
         </div>
     </div>
@@ -295,7 +298,62 @@
 
             </div>
         </div>
-    </div>
+
+        <div class="accordion mt-5" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button border border-warning text-black fs-5 fw-bolder" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseComment" aria-expanded="true"
+                        aria-controls="collapseComment">
+                        Comments and Reviews
+                    </button>
+                </h2>
+                <div id="collapseComment" class="accordion-collapse collapse show" aria-labelledby="headingComment"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body border border-warning">
+                        <div class="">
+                            <div class="">
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info" class="user_name">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-comment"
+                                        alt="avatar"> <span class="ms-2 h5 text-black bolder fw-5">User 1</span>
+                                </a>
+                                <div class="chat-about mb-5">
+                                    <h6 class="m-b-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Similique dolores nulla explicabo cumque ipsam veniam eos nesciunt esse magni
+                                        totam iure autem facilis est, repellat velit reiciendis quos vero. Nulla.</h6>
+                                    <small>Last seen: 2 hours ago</small>
+                                </div>
+
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info" class="user_name">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="img-comment"
+                                        alt="avatar"> <span class="ms-2 h5 text-black bolder fw-5">User 1</span>
+                                </a>
+                                <div class="chat-about">
+                                    <h6 class="m-b-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Similique dolores nulla explicabo cumque ipsam veniam eos nesciunt esse magni
+                                        totam iure autem facilis est, repellat velit reiciendis quos vero. Nulla.</h6>
+                                    <small>Last seen: 2 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>
+
+
+<style>
+    .img-comment {
+        width: 45px;
+        border-radius: 50%;
+        text-decoration: none;
+    }
+
+    .user_name {
+        text-decoration: none;
+        font-weight: bolder;
+    }
+</style>
