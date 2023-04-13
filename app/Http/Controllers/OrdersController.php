@@ -12,10 +12,14 @@ class OrdersController extends Controller
 {
     //make payment
     public function makePayment(Request $request)
-    {
+    {   
         $segment = $request->segment(3);
+
+        // House details
+        $house = Houses::select('*')->where('id', $segment)->get();
         return view('make-payment', [
-            'segment' => $segment
+            'segment' => $segment,
+            'house' => $house
         ]);
     }
 

@@ -11,30 +11,44 @@
 </head>
 
 <body>
-    <div class="container ">
-        <form id="paymentForm">
+    <div class="container mt-3 pt-3">
+        <form id="paymentForm" class="mt-5 text-center border border-3 py-3 px-3">
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email-address" required />
+                <label class="h4" for="email">Email Address</label>
+                <input type="email" class="form-control mb-4" id="email-address" readonly value="{{Auth::user()->email}}" required />
             </div>
             <div class="form-group">
-                <label for="amount">Amount</label>
-                <input type="tel" id="amount" required />
+                <label class="h4" for="amount">Amount</label>
+                <input class="form-control mb-4" type="tel" id="amount" readonly value="{{$house[0]->price}}" required />
             </div>
             <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" />
+                <label class="h4" for="first-name">First Name</label>
+                <input class="form-control mb-4" type="text" readonly value="{{Auth::user()->name}}" id="first-name" />
             </div>
             <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" />
+                <label class="h4" for="last-name">Last Name</label>
+                <input class="form-control mb-4" type="text" readonly value="{{Auth::user()->name}}" id="last-name" />
+            </div>
+            <div class="form-group">
+                <label class="h4" for="payment-for">Payment For</label>
+                <input class="form-control mb-4" type="text" readonly value="{{$house[0]->type}} in {{$house[0]->address}}" id="payment-for" />
+            </div>
+            <div class="form-group">
+                <label class="h4" for="payment-duration">Payment Duration</label>
+                <input class="form-control mb-4" type="text" readonly value="N{{$house[0]->price}} / {{$house[0]->duration}}" id="payment-duration" />
             </div>
             {{-- <div class="form-group">
                 <input type="text" id="productId" value="" hidden />
             </div> --}}
             <div class="form-submit">
-                <button type="submit" onclick="payWithPaystack()"> Pay </button>
+                <button type="submit" class="btn btn-warning btn-lg mt-1" onclick="payWithPaystack()"> Pay </button>
             </div>
+        </form>
+
+        <form action="/houses/full-page/{{$house[0]->id}}">
+            <button class="back btn btn-lg rounded"><i
+                    class="bi bi-arrow-left-circle-fill  fs-1 pt-2 text-white bg-warning"></i>
+            </button>
         </form>
 
         <script src="https://js.paystack.co/v1/inline.js"></script>
@@ -73,3 +87,24 @@
         handler.openIframe();
     }
 </script>
+
+<style>
+    .back {
+        position: fixed;
+        top: 50%;
+        left: 40px;
+        z-index: 9999;
+        width: 52px;
+        height: 57px;
+        text-align: center;
+        line-height: 5px;
+        /* background: #b0b435; */
+        /* color: #ffffff; */
+        cursor: pointer;
+        border: 0;
+        border-radius: 0px;
+        text-decoration: none;
+        transition: opacity 0.2s ease-out;
+        font-size: 28px;
+    }
+</style>

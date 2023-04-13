@@ -51,7 +51,7 @@
                 
                 
                 @php
-
+                    $images = explode('|', $house[0]->images);
                     $tenant = $tenants[$counter][0]->name;
                     
                     $counter++;
@@ -60,7 +60,7 @@
                 @endphp
                 <div class="col-3">
                     <div class="card border-0" style="width: 18rem;">
-                        <img src="{{ asset('storage/images/header-img3.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/images/houses/' . $images[0]) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="" class="text-decoration-none">
                                 <h2 class="card-title fs-4 fw-bolder ">{{ $house[0]->type }}</h2>

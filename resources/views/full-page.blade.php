@@ -18,6 +18,7 @@
                 $user_id = 0;
                 $landlord_id = $house->landlord_id;
                 $house_id = $house->id;
+                $account_type = 'Account-type';
             @endphp
 
             <img src="{{ asset('storage/images/houses/' . $images[1]) }}" class="img-fluid w-100 opacity-50"
@@ -81,6 +82,12 @@
                     href="/house/pay/{{ $house->id }}"><i
                         class="bi bi-exclamation-triangle-fill fs-3 text-danger"></i> Not Available
                 </a>
+
+                @if ($house->landlord_id == Auth::user()->id && Auth::user()->$account_type == 'LandLord')
+                    <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
+                        href="/house/pay/receipt/{{$house->id}}/{{$house->landlord_id}}">View Receipt
+                    </a>
+                @endif
             @else
                 <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
                     href="/house/pay/{{ $house->id }}">Pay Now
@@ -88,7 +95,8 @@
             @endif
 
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="https://wa.me/{{$landlord_phone[0]->number}}"><i class="bi bi-whatsapp fs-3"></i> Message LandLord
+                href="https://wa.me/{{ $landlord_phone[0]->number }}"><i class="bi bi-whatsapp fs-3"></i> Message
+                LandLord
             </a>
         </div>
     </div>
@@ -290,8 +298,12 @@
                     <h2 class="fw-bolder">CONTACT</h2>
                     <div class="border border-warning">
                         <ul class="mt-2 fs-5 fw-bold">
-                            <li>Phone: <a href="tel:12345678987">12345678987</a></li>
-                            <li>Email: <a href="mailto: abc@example.com">abc@example.com</a></li>
+                            <li>Phone: <a
+                                    href="tel:{{ $landlord_phone[0]->number }}">+{{ $landlord_phone[0]->number }}</a>
+                            </li>
+                            <li>Email: <a
+                                    href="mailto: {{ $landlord_phone[0]->email }}">{{ $landlord_phone[0]->email }}</a>
+                            </li>
                         </ul>
 
                     </div>
@@ -318,12 +330,14 @@
                                 @else
                                     @foreach ($messages as $message)
                                         @php
-                                            $user = Auth::user()->where('id', $message->user_id)->get('*');
+                                            $user = Auth::user()
+                                                ->where('id', $message->user_id)
+                                                ->get('*');
                                             // dd($user)
                                         @endphp
                                         <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info"
                                             class="user_name">
-                                            <img src="{{ asset('storage/images/profile/' . $user[0]->picture)}}"
+                                            <img src="{{ asset('storage/images/profile/' . $user[0]->picture) }}"
                                                 class="img-comment" alt="avatar"> <span
                                                 class="ms-2 h5 text-black bolder fw-5">{{ $user[0]->name }}</span>
                                         </a>

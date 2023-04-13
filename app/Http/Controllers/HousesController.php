@@ -135,7 +135,7 @@ class HousesController extends Controller
         $house = $house[0];
 
         // get Landlord phone number
-        $landlord_phone = User::select('number')->where('id', $house->landlord_id)->get();
+        $landlord_phone = User::select('*')->where('id', $house->landlord_id)->get();
 
         if (Auth::user()->email == null) {
             return redirect('/');
@@ -172,6 +172,7 @@ class HousesController extends Controller
         return redirect(Route('my_houses'))->with('status', 'House removed successfully');
     }
 
+    // Show Landlord rented Houses
     public function showRentedHouses(){
         $houser = [];
         $tenants = [];
@@ -189,6 +190,20 @@ class HousesController extends Controller
         return view('landlord-rented-houses', [
             'houser' => $houser,
             'tenants' => $tenants
+        ]);
+    }
+
+    // Show Landlord receipt
+    public function landlordReceipt($house_id, $landlord_id){
+        $house = Houses::select('*')->where('id', $house_id)->get();
+        $landLord = User::select('*')->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
+        $reference = Orders::select('*')->where('productId', $house_id)->where('landLordId', $landlord_id)->get();
+        $reference =  $reference[0]->customer_reference_number;
+
+        return view('receipt', [
+            'house' => $house,
+            'reference' => $reference,
+            'landLord' => $landLord
         ]);
     }
 }

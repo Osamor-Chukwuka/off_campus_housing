@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container ">
+    <div class="container mt-5 pt-5">
         <h1 class="text-center">Your Receipt</h1>
 
         <table class="table table-responsive     table-striped ms-5 container ps-5 border border-3" style="width: 40%;">
@@ -60,7 +60,34 @@
         
 
     </div>
+
+    <form action="/houses/full-page/{{$house[0]->id}}">
+        <button class="back btn btn-lg rounded"><i
+                class="bi bi-arrow-left-circle-fill  fs-1 pt-2 text-white bg-warning"></i>
+        </button>
+    </form>
 </body>
 
 </html>
+
+<style>
+    .back {
+        position: fixed;
+        top: 50%;
+        left: 40px;
+        z-index: 9999;
+        width: 52px;
+        height: 57px;
+        text-align: center;
+        line-height: 5px;
+        /* background: #b0b435; */
+        /* color: #ffffff; */
+        cursor: pointer;
+        border: 0;
+        border-radius: 0px;
+        text-decoration: none;
+        transition: opacity 0.2s ease-out;
+        font-size: 28px;
+    }
+</style>
 

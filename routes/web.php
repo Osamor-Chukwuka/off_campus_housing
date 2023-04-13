@@ -66,6 +66,9 @@ Route::post('/my-houses/delete', [HousesController::class, 'deleteLandlordHouse'
 // Display all houses that belongs to a Landlord that has been rented/bought
 Route::get('/my-houses/rented', [HousesController::class, 'showRentedHouses'])->name('landlord_rented_houses');
 
+// Show receipt to Landlord
+Route::get('/house/pay/receipt/{house_id}/{landlord_id}', [HousesController::class, 'landlordReceipt']);
+
 // back button
 // Route::get('/back', function(){
 //     return Request::referrer();
