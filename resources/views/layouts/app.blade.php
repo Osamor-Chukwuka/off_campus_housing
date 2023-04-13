@@ -58,7 +58,19 @@
                             
 
                         @else
-                            <a href="{{route('houses')}}" class="nav-link me-5">Houses</a>
+                            {{-- <a href="{{route('houses')}}" class="nav-link me-5">Houses</a> --}}
+                            <li class="nav-item dropdown me-5">
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Houses
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{route('houses')}}" class="dropdown-item me-5">All Houses</a>
+                                    <a href="{{route('student_owned_houses')}}" class="dropdown-item me-5">My Owned Houses</a>
+                                    {{-- <a href="{{route('landlord_rented_houses')}}" class="dropdown-item me-5">Rented/Bought houses</a> --}}
+                                </div>
+                            </li>
                             @if (Auth::user()->$Account_type == 'LandLord')
                             <li class="nav-item dropdown me-5">
 

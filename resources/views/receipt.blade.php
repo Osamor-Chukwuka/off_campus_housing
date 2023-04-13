@@ -48,6 +48,10 @@
                     <th scope="row">reference number:</th>
                     <td colspan="2">{{$reference}}</td>
                 </tr>
+                <tr>
+                    <th scope="row">Buyer:</th>
+                    <td colspan="2">{{$user[0]->name}}</td>
+                </tr>
 
                 <tr>
                     <th> </th>

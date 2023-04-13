@@ -191,10 +191,13 @@ class OrdersController extends Controller
 
         $house = Houses::select('*')->where('id', $productId)->get();
         $landLord = User::select('*')->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
+        $order =  Orders::select('*')->where('productId', $productId)->where('landLordId', $landlord_id)->get();
+        $user = User::select('*')->where('id', $order[0]->userId)->get();
         return view('receipt', [
             'house' => $house,
             'reference' => $reference,
-            'landLord' => $landLord
+            'landLord' => $landLord,
+            'user' => $user
         ]);
     
     }

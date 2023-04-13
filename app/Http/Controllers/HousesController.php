@@ -198,12 +198,35 @@ class HousesController extends Controller
         $house = Houses::select('*')->where('id', $house_id)->get();
         $landLord = User::select('*')->where('id', $landlord_id)->where('Account-type', 'LandLord')->get();
         $reference = Orders::select('*')->where('productId', $house_id)->where('landLordId', $landlord_id)->get();
+        $user = User::select('*')->where('id', $reference[0]->userId)->get();
         $reference =  $reference[0]->customer_reference_number;
 
         return view('receipt', [
             'house' => $house,
             'reference' => $reference,
-            'landLord' => $landLord
+            'landLord' => $landLord,
+            'user' => $user
+        ]);
+    }
+
+    //show Student owned houses
+    public function studentOwnedHouses(){
+        $houser = [];
+        $tenants = [];
+        $ordered_houses = Orders::select('*')->where('userId', Auth::user()->id)->get();
+        foreach($ordered_houses as $order){
+            (array_push($houser, Houses::select('*')->where('id', $order->productId )->get()));
+            (array_push($tenants, User::select('*')->where('id', $order->userId )->get()));
+            
+            
+        }
+        // dd($houser);
+        // echo($count[0]) ;
+        
+        // echo $ordered_houses[0]->id
+        return view('student-owned-houses', [
+            'houser' => $houser,
+            'tenants' => $tenants
         ]);
     }
 }

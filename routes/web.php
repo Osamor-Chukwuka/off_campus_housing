@@ -69,6 +69,9 @@ Route::get('/my-houses/rented', [HousesController::class, 'showRentedHouses'])->
 // Show receipt to Landlord
 Route::get('/house/pay/receipt/{house_id}/{landlord_id}', [HousesController::class, 'landlordReceipt']);
 
+// Show all student rented houses
+Route::get('/student-ordered-houses', [HousesController::class, 'studentOwnedHouses'])->name('student_owned_houses');
+
 // back button
 // Route::get('/back', function(){
 //     return Request::referrer();
