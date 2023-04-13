@@ -133,6 +133,10 @@ class HousesController extends Controller
         $segment =  $request->segment(3);
         $house = Houses::select('*')->where('id', $segment)->get();
         $house = $house[0];
+
+        // get Landlord phone number
+        $landlord_phone = User::select('number')->where('id', $house->landlord_id)->get();
+
         if (Auth::user()->email == null) {
             return redirect('/');
         } else {
@@ -144,7 +148,8 @@ class HousesController extends Controller
             return view('full-page', [
                 'house' => $house,
                 'order' => $order,
-                'messages' => $messages
+                'messages' => $messages,
+                'landlord_phone' => $landlord_phone
             ]); //fix  this later
         }
     }

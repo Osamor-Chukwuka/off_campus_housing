@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'number',
+        'picture',
         'Account-type',
         'account_number',
         'sort_code'

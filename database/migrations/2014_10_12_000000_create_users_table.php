@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('number');
+            $table->string('picture');
             $table->string('Account-type');
             $table->string('account_number')->default('NULL');
             $table->string('sort_code')->default('NULL');

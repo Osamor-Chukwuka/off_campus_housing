@@ -87,9 +87,8 @@
                 </a>
             @endif
 
-
             <a class="btn mt-3 btn-lg btn-outline-warning fs-5 fw-bolder text-decoration-none text-center"
-                href="https://wa.me/2348104668125"><i class="bi bi-whatsapp fs-3"></i> Message LandLord
+                href="https://wa.me/{{$landlord_phone[0]->number}}"><i class="bi bi-whatsapp fs-3"></i> Message LandLord
             </a>
         </div>
     </div>
@@ -319,13 +318,12 @@
                                 @else
                                     @foreach ($messages as $message)
                                         @php
-                                            $user = Auth::user()
-                                                ->where('id', $message->user_id)
-                                                ->get('name');
+                                            $user = Auth::user()->where('id', $message->user_id)->get('*');
+                                            // dd($user)
                                         @endphp
                                         <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info"
                                             class="user_name">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                            <img src="{{ asset('storage/images/profile/' . $user[0]->picture)}}"
                                                 class="img-comment" alt="avatar"> <span
                                                 class="ms-2 h5 text-black bolder fw-5">{{ $user[0]->name }}</span>
                                         </a>
