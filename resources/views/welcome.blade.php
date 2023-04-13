@@ -46,77 +46,29 @@
         <p>Some of the Houses that are up for rent/sale</p>
 
         <div class="row align-items-center">
-            <div class="col ">
+            @foreach ($houses as $house)
+                @php
+                    $house_id = $house->id;
+                    $images = explode('|', $house->images);
+                @endphp
+                @if ($order->where('productId', '>=', $house_id)->exists() == false)
+                    <div class="col ">
                 <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house1.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/images/houses/' . $images[0]) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
+                        <h5 class="card-title fw-bolder">{{$house->type}}</h5>
+                        <p class="card-text">{{$house->address}}</p>
+                        <a href="/houses/full-page/{{$house->id}}" class="btn button_color">Full details</a>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house2.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+                @endif
+                
+            @endforeach
+            
         </div>
 
 
-        <div class="row align-items-center">
-            <div class="col ">
-                <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house1.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house2.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="width: 100%;">
-                    <img src="{{ asset('storage/images/house3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bolder">APERTMENTS HOUSE</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn button_color">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <a href="/houses" class=" btn btn-outline-warning mt-3 mb-3 text-secondary fw-bold">Find more</a>
     </div>

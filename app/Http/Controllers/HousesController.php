@@ -144,7 +144,8 @@ class HousesController extends Controller
             $messages = Comment::orderBy('created_at', 'asc')->where('house_id', $segment)->get();
             // $user = User::find(1)->comments()->
 
-            $order = Orders::select('productId')->where('productId', $segment)->get();
+            $order = Orders::select('*')->where('productId', $segment)->get();
+            // $user_order = Orders::select('user_Id')->where('productId', $segment)->get();
             return view('full-page', [
                 'house' => $house,
                 'order' => $order,

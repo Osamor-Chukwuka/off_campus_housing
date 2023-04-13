@@ -15,6 +15,11 @@
         <figure style="position: relative;">
             @php
                 $images = explode('|', $house->images);
+                $features = explode(',', $house->features);
+                $furnishings = explode(',', $house->furnishings);
+                $counter2 = 0;
+                // dd($features);
+                
                 $user_id = 0;
                 $landlord_id = $house->landlord_id;
                 $house_id = $house->id;
@@ -82,10 +87,10 @@
                     href="/house/pay/{{ $house->id }}"><i
                         class="bi bi-exclamation-triangle-fill fs-3 text-danger"></i> Not Available
                 </a>
-
-                @if ($house->landlord_id == Auth::user()->id && Auth::user()->$account_type == 'LandLord')
+                
+                @if ($house->landlord_id == Auth::user()->id or $order[0]->userId == Auth::user()->id)
                     <a class="btn mt-3 pt-3 btn-lg btn-warning fs-5 fw-bolder text-decoration-none text-center text-white"
-                        href="/house/pay/receipt/{{$house->id}}/{{$house->landlord_id}}">View Receipt
+                        href="/house/pay/receipt/{{ $house->id }}/{{ $house->landlord_id }}">View Receipt
                     </a>
                 @endif
             @else
@@ -108,8 +113,8 @@
         <div class="row g-5">
             <div class="col-6">
                 <div>
-                    <h2 class="fw-bolder">ABOUT</h2>
-                    <p class="fs-5">{{ $house->about }}</p><br>
+                    <h2 class="fw-bolder">Details</h2>
+                    {{-- <p class="fs-5"></p><br> --}}
                 </div>
 
 
@@ -119,18 +124,13 @@
                             <button class="accordion-button border border-warning text-black fs-5 fw-bolder"
                                 type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                 aria-expanded="true" aria-controls="collapseOne">
-                                Room Types
+                                ABOUT
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body border border-warning">
-                                <strong>This is the first item's accordion body.</strong> It is shown by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It's also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{ $house->about }}
                             </div>
                         </div>
                     </div>
@@ -172,10 +172,16 @@
                     <h2 class="fw-bolder">FEATURES & AMENITIES</h2>
                     <div class="border border-warning">
                         <ul class="mt-2 fs-5">
-                            <li>24/7 Information Desk</li>
-                            <li>Air conditioning</li>
-                            <li>Bicycle racks</li>
-                            <li>Building kitchen</li>
+                            @foreach ($features as $key)
+                                <li>{{ $key }}</li>
+                                @php
+                                    $counter2++;
+                                    
+                                    if ($counter2 >= 2) {
+                                        break;
+                                    }
+                                @endphp
+                            @endforeach
                         </ul>
                         <button class="btn btn-warning fs-5 fw-bold" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Show
@@ -192,25 +198,9 @@
                             </div>
                             <div class="offcanvas-body">
                                 <ul class="fs-5">
-                                    <li>24/7 Information Desk</li>
-                                    <li>Air conditioning</li>
-                                    <li>Bicycle racks</li>
-                                    <li>Building kitchen</li>
-                                    <li>Common area lounges</li>
-                                    <li>Fresh Food Dining</li>
-                                    <li>Fully furnished</li>
-                                    <li>Game room</li>
-                                    <li>Gigabit ethernet internet</li>
-                                    <li>HBO</li>
-                                    <li>Laundry included</li>
-                                    <li>Meditation room</li>
-                                    <li>Music practice rooms</li>
-                                    <li>Open during breaks</li>
-                                    <li>Parking</li>
-                                    <li>Security</li>
-                                    <li>Study rooms</li>
-                                    <li>Tech lab</li>
-                                    <li>Wi-Fi</li>
+                                    @foreach ($features as $feature)
+                                        <li>{{ $feature }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -225,10 +215,16 @@
                     <h2 class="fw-bolder">FURNISHINGS</h2>
                     <div class="border border-warning">
                         <ul class="mt-2 fs-5">
-                            <li>1 cable TV jack (TV and cord not provided)</li>
-                            <li>1 gigabit Ethernet internet jack per resident (cord not provided)</li>
-                            <li>Carpeted floors</li>
-                            <li>Desk and chair</li>
+                            @foreach ($furnishings as $furnishing)
+                                <li>{{ $furnishing }}</li>
+                                @php
+                                    $counter2++;
+                                    
+                                    if ($counter2 >= 4) {
+                                        break;
+                                    }
+                                @endphp
+                            @endforeach
                         </ul>
                         <button class="btn btn-warning fs-5 fw-bold" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Show All
@@ -243,14 +239,9 @@
                             </div>
                             <div class="offcanvas-body">
                                 <ul class="mt-2 fs-5">
-                                    <li>1 cable TV jack (TV and cord not provided)</li>
-                                    <li>1 gigabit Ethernet internet jack per resident (cord not provided)</li>
-                                    <li>Carpeted floors</li>
-                                    <li>Desk and chair</li>
-                                    <li>Drawer space</li>
-                                    <li>Extra long twin bed (36 inches x 80 inches)</li>
-                                    <li>Recycling 3-part containers</li>
-                                    <li>Window coverings</li>
+                                    @foreach ($furnishings as $furnishing)
+                                        <li>{{ $furnishing }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
