@@ -230,4 +230,14 @@ class HousesController extends Controller
             'tenants' => $tenants
         ]);
     }
+
+    public function welcome(){
+        $houses = Houses::select('*')->get();
+        $order = DB::table('orders')->where('id', '>', 0);
+        // dd($order);
+        return view('welcome', [
+            'houses' => $houses,
+            'order' => $order
+        ]);
+    }
 }
